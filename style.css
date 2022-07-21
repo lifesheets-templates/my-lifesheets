@@ -1,0 +1,214 @@
+:root {
+	--gray: 220 10%;
+	--font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	accent-color: var(--accent-color);
+}
+
+[data-prefix]::before {
+	content: attr(data-prefix);
+}
+
+[data-suffix]::after {
+	content: attr(data-suffix);
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font: 100%/1.5 var(--font-ui);
+}
+
+button {
+	padding: .3em .5em;
+	border: 1px solid hsl(var(--gray) 0% / .2);
+	border-radius: calc(.15em + .15rem);
+	background-color: hsl(var(--gray) 93%);
+	cursor: pointer;
+	font-size: .875em;
+	text-decoration: none;
+	color: inherit;
+	transition-duration: .2s;
+	transition-property: background-color, border-color, color;
+	line-height: 1.1;
+	white-space: nowrap
+}
+
+button:hover:not(:disabled) {
+		background-color: hsl(var(--gray) 97%);
+	}
+
+button:disabled {
+		cursor: not-allowed;
+		opacity: .5;
+	}
+
+body > header {
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	grid-template-areas: "h1 h2 . mv-bar";
+	align-items: center;
+	grid-column-end: span 2;
+	padding: .5em 1em;
+	margin-bottom: 1em;
+	background: var(--accent-color);
+	color: white;
+	text-align: center
+}
+
+body > header > a {
+		display: contents;
+		color: inherit;
+		text-decoration: none;
+	}
+
+body > header h1 {
+		margin: 0;
+		font-weight: 300;
+		font-size: 400%;
+		line-height: 1;
+		margin-bottom: .2em;
+		white-space: nowrap
+	}
+
+body > header h1::before {
+			content: var(--icon);
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: .2em;
+			font-size: 80%;
+		}
+
+body > header h2 {
+		margin: 0 0 0 .4em;
+		max-width: 5em;
+		text-align: left;
+		opacity: .5;
+		line-height: .9;
+	}
+
+@media (max-width: 450px) {
+
+body > header {
+		display: none
+}
+	}
+
+.mv-bar.mv-ui {
+	background: transparent;
+}
+
+main {
+	padding: 0 1rem;
+}
+
+section[mv-list="entry"] {
+	display: flex;
+	flex-flow: column-reverse;
+}
+
+article.entry {
+	margin: .5em 0;
+	background: hsl(220 10% 90%);
+	border-radius: 4px
+}
+
+article.entry header,
+	article.entry header > div {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+article.entry header > div {
+		padding: .5em;
+	}
+
+article.entry [property="date"] {
+		font-weight: bold;
+	}
+
+article.entry [property="weekday"] {
+		min-width: 2em;
+		text-align: right;
+		margin-right: .6ch;
+	}
+
+article.entry [property="notes"] {
+		padding: .5em;
+		background: hsla(0, 0%, 100%, .4);
+	}
+
+article.entry [property="startTime"] {
+		margin-left: .4em;
+	}
+
+article.entry [property="startTime"]:not(:empty)::before {
+			content: "at ";
+		}
+
+article.entry .end-time,
+	article.entry .duration {
+		margin-left: .4em;
+	}
+
+article.entry .entry-data {
+		display: flex;
+		gap: .4em;
+	}
+
+button.mv-add-entry {
+	font-size: 150%;
+}
+
+button.mv-add-entry:not([mv-mode="edit"] *),
+button.mv-add-entry.mv-ui {
+	display: none;
+}
+
+meta[property][mv-mode="edit"] {
+	display: none;
+}
+
+[data-hide="true"] {
+	display: none;
+}
+
+.root-data {
+	margin: 1em 0;
+}
+
+.charts {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .5em;
+	margin: 1em 0
+}
+
+.charts > :only-child {
+		grid-column: span 2;
+	}
+
+/* Credit for mask idea: https://twitter.com/sineway_/status/1450476441376808975 */
+meter.discrete {
+	--_icon: var(--icon, url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size:80px" y=".9em">⭐️</text></svg>'));
+	--_height: var(--height, 1.2em);
+
+	display: inline-block;
+	vertical-align: -.25em;
+	width: calc(var(--max, 5) * var(--_height));
+	height: var(--_height);
+	-webkit-mask: var(--_icon);
+	background: hsl(220 10% 50% / .15)
+}
+meter.discrete::-webkit-meter-inner-element {
+		display: block; /* Override Chrome's display: grid */
+	}
+meter.discrete::-webkit-meter-bar {
+		border: none;
+		background: transparent;
+	}
+meter.discrete::-webkit-meter-optimum-value {
+		background: var(--_icon) 0 / auto 100%;
+	}
+meter.discrete::-moz-meter-bar {
+		background: var(--_icon) 0 / auto 100%;
+	}
