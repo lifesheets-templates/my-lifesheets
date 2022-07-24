@@ -1,1 +1,24 @@
-{"mygraine":{"name":"mygraine","slug":"mygraine","entryName":"migraine","icon":"🤕","color":"#cc0044","storageType":"","storage":"https://github.com/leaverou/my-lifesheets/mygraine/data.json","notes":true}}
+{
+	"mygraine": {
+		"name": "mygraine",
+		"slug": "mygraine",
+		"entryName": "migraine",
+		"icon": "🤕",
+		"color": "#cc0044",
+		"storageType": "",
+		"storage": "https://github.com/leaverou/my-lifesheets/mygraine/data.json",
+		"notes": true
+	},
+	"mylife": {
+		"name": "MyLife",
+		"slug": "mylife",
+		"entryName": "entry",
+		"description": "entry tracker",
+		"private": false,
+		"icon": "😀",
+		"color": "#0cc4e9",
+		"storageType": "",
+		"storage": "",
+		"notes": true
+	}
+}
