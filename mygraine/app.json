@@ -1,1 +1,204 @@
-{"app":{"name":"mygraine","slug":"mygraine","entryName":"migraine","icon":"🤕","color":"#cc0044","storageType":"","storage":"https://github.com/leaverou/my-lifesheets/mygraine/data.json","notes":true},"temporal":{"times":"yes","ranges":"yes","defaultDate":"[$today]","defaultTime":"","showDuration":true},"entry":[{"scope":"entry","settings":{"type":"number","min":1,"max":10,"step":1},"name":"intensity","type":"property"},{"scope":"entry","settings":{"expression":"intensity + 5"},"type":"expression"},{"scope":"entry","settings":{"type":"toggle","options":"left, right, both"},"name":"side","type":"property"}],"root":[{"scope":"entry","settings":{"expression":"duration($now - first(end_date_time), 2)","suffix":" since last migraine"},"type":"expression"}],"charts":[]}
+{
+	"app": {
+		"name": "mygraine",
+		"slug": "mygraine",
+		"entryName": "migraine",
+		"icon": "🤕",
+		"color": "#cc0044",
+		"storageType": "",
+		"storage": "https://github.com/leaverou/my-lifesheets/mygraine/data.json",
+		"notes": true,
+		"description": "migraine tracker",
+		"entries_name": "migraines"
+	},
+	"temporal": {
+		"times": "yes",
+		"ranges": "yes",
+		"defaultDate": "[$today]",
+		"defaultTime": "",
+		"showDuration": true
+	},
+	"entry": [
+		{
+			"uid": 7,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"expression": "[weekday(date, 'shortname')]"
+			},
+			"name": "weekday"
+		},
+		{
+			"uid": 8,
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]"
+			},
+			"name": "date"
+		},
+		{
+			"uid": 9,
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"uid": 10,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "[date][if(time, 'T' & time)]"
+			},
+			"name": "date_time"
+		},
+		{
+			"uid": 11,
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " to ",
+				"type": "time",
+				"default": "",
+				"visible": "[time]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "end_time"
+		},
+		{
+			"uid": 12,
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"prefix": " on ",
+				"visible": "[time and end_time]",
+				"default": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
+				"min_date": "[date]"
+			},
+			"name": "end_date"
+		},
+		{
+			"uid": 13,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "[end_date][if(end_time, 'T' & end_time)]"
+			},
+			"name": "end_date_time"
+		},
+		{
+			"uid": 14,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "[end_date_time - date_time]"
+			},
+			"name": "duration"
+		},
+		{
+			"uid": 15,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "[end_date and (time and end_time)]",
+				"expression": "([duration(duration, 2)])"
+			},
+			"name": "duration_readable"
+		},
+		{
+			"uid": 1,
+			"type": "property",
+			"scope": "entry",
+			"flags": [],
+			"settings": {
+				"type": "number",
+				"min": 1,
+				"max": 10,
+				"step": 1
+			},
+			"name": "intensity"
+		},
+		{
+			"uid": 2,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [],
+			"settings": {
+				"expression": "intensity + 5"
+			}
+		},
+		{
+			"uid": 3,
+			"type": "property",
+			"scope": "entry",
+			"flags": [],
+			"settings": {
+				"type": "options",
+				"options": "left, right, both"
+			},
+			"name": "side"
+		}
+	],
+	"root": [
+		{
+			"uid": 4,
+			"type": "expression",
+			"scope": "entry",
+			"flags": [],
+			"settings": {
+				"expression": "duration($now - first(end_date_time), 2)",
+				"suffix": " since last migraine"
+			}
+		}
+	],
+	"charts": [
+		{
+			"uid": 16,
+			"type": "chart",
+			"scope": "root",
+			"flags": [],
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "intensity"
+			}
+		}
+	]
+}
