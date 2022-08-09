@@ -147,7 +147,6 @@
 			"uid": 1,
 			"type": "property",
 			"scope": "entry",
-			"flags": [],
 			"settings": {
 				"type": "number",
 				"min": 1,
@@ -160,7 +159,6 @@
 			"uid": 2,
 			"type": "expression",
 			"scope": "entry",
-			"flags": [],
 			"settings": {
 				"expression": "intensity + 5"
 			}
@@ -169,7 +167,6 @@
 			"uid": 3,
 			"type": "property",
 			"scope": "entry",
-			"flags": [],
 			"settings": {
 				"type": "options",
 				"options": "left, right, both"
@@ -182,7 +179,6 @@
 			"uid": 4,
 			"type": "expression",
 			"scope": "entry",
-			"flags": [],
 			"settings": {
 				"expression": "duration($now - first(end_date_time), 2)",
 				"suffix": " since last migraine"
@@ -194,10 +190,9 @@
 			"uid": 16,
 			"type": "chart",
 			"scope": "root",
-			"flags": [],
 			"settings": {
-				"aggregate": "average",
-				"aggregate_of": "intensity"
+				"aggregate": "count",
+				"aggregate_of": "entry"
 			}
 		}
 	]
