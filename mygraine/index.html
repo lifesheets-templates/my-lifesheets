@@ -32,12 +32,13 @@
 		<div class="charts">
 			
 <figure class="chart">
+	
 	<h-chart type="bar">
 		<table>
 			<thead>
 				<tr>
-					<th>Date</th>
-					<th>Value</th>
+					<th>Month</th>
+					<th>Number of migraines</th>
 				</tr>
 			</thead>
 			<tbody mv-list="chart16" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
@@ -48,7 +49,7 @@
 			</tbody>
 		</table>
 	</h-chart>
-	<figcaption>count of undefined for each month</figcaption>
+	<figcaption>Number of migraines per month</figcaption>
 </figure>
 		</div>
 		<div class="root-fields">
