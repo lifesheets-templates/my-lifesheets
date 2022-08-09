@@ -9,7 +9,8 @@
 		"storage": "https://github.com/leaverou/my-lifesheets/mygraine/data.json",
 		"notes": true,
 		"description": "migraine tracker",
-		"entries_name": "migraines"
+		"entries_name": "migraines",
+		"entry_name": "migraine"
 	},
 	"temporal": {
 		"times": "yes",
