@@ -40,15 +40,15 @@
 					<th>Value</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart16" mv-value="groupBy(intensity, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart16" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
-					<td>[average($items)]</td>
+					<td>[count($items)]</td>
 				</tr>
 			</tbody>
 		</table>
 	</h-chart>
-	<figcaption>average of intensity for each month</figcaption>
+	<figcaption>count of undefined for each month</figcaption>
 </figure>
 		</div>
 		<div class="root-fields">
