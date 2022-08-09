@@ -13,12 +13,17 @@
 			--icon: "🤕";
 		}
 	</style>
+	
+	
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://projects.verou.me/nudeforms/index.js"></script>
 </head>
-<body mv-app="mygraine" class="mv-autoedit" mv-storage="https://github.com/leaverou/my-lifesheets/mygraine/data.json" mv-autosave>
+<body mv-app="mygraine" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/mygraine/data.json">
 	<header>
-		<h1>mygraine</h1>
+		<h1>
+			<span class="app-icon">🤕</span>
+			<span class="app-name">mygraine</span>
+		</h1>
 		<h2>migraine tracker</h2>
 		<div class="mv-bar mv-ui"></div>
 	</header>
@@ -26,46 +31,44 @@
 	<main>
 		<div class="charts">
 			
+<figure class="chart">
+	<h-chart type="bar">
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart16" mv-value="groupBy(intensity, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>average of intensity for each month</figcaption>
+</figure>
 		</div>
-		<div class="root-data">
-			<span  mv-value="if(duration($now - first(end_date_time), 2), duration($now - first(end_date_time), 2) since last migraine)" class="expression"></span>
+		<div class="root-fields">
+			<span data-uid="4" data-suffix=" since last migraine" mv-value="duration($now - first(end_date_time), 2)" class="expression"></span>
 		</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header>
-					<div class="dates">
-						<span property="weekday">[weekday(date, "shortname")]</span>
-						<time property="date" mv-edit-type="inline" mv-default="[$today]"></time>
-						<meta property="date_time" content="[date][if(time, 'T' & time)]">
-
-						<time property="time" mv-edit-type="inline" mv-editor-type="time" mv-default="">[time(time, 'minutes')]</time>
-						
-							<span class="end-time" data-hide="[!time]">
-								to
-								<time property="end_time" mv-edit-type="inline" mv-editor-type="time">[time(end_time, 'minutes')]</time>
-								<span>
-									on
-									<time property="end_date" mv-edit-type="inline" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-editor-min="[date]"></time>
-								</span>
-								<meta property="end_date_time" content="[end_date][if(end_time, 'T' & end_time)]">
-							</span>
-							
-
-						
-							<span mv-if="end_date and (time and end_time)" class="duration">
-								([duration(duration, 2)])
-							</span>
-							
-
-						<meta property="duration" content="[ end_date_time - date_time ]">
-					</div>
-					<div class="entry-data">
-						<span class="type-number" property="intensity" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="10" mv-editor-step="1" ></span>
-<span  mv-value="intensity + 5" class="expression"></span>
-<cycle-toggle class="type-toggle" property="side" ><span>left</span>
-<span>right</span>
-<span>both</span></cycle-toggle>
-					</div>
+					<span property="weekday" data-uid="7" mv-value="[weekday(date, 'shortname')]" class="expression"></span>
+					<time property="date" data-uid="8" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
+					<time property="time" data-uid="9" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<span property="date_time" data-uid="10" data-show="false" mv-value="[date][if(time, 'T' & time)]" class="expression"></span>
+					<time property="end_time" data-uid="11" data-prefix=" to " data-show="[!!(time)]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<time property="end_date" data-uid="12" data-prefix=" on " data-show="[!!(time and end_time)]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
+					<span property="end_date_time" data-uid="13" data-show="false" mv-value="[end_date][if(end_time, 'T' & end_time)]" class="expression"></span>
+					<span property="duration" data-uid="14" data-show="false" mv-value="[end_date_time - date_time]" class="expression"></span>
+					<span property="duration_readable" data-uid="15" data-show="[!!(end_date and (time and end_time))]" mv-value="([duration(duration, 2)])" class="expression"></span>
+					<span property="intensity" data-uid="1" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="10" mv-editor-step="1" class="type-number"></span>
+					<span data-uid="2" mv-value="intensity + 5" class="expression"></span>
+					<span property="side" data-uid="3" mv-options="left, right, both" class="type-options"></span>
 				</header>
 				<div property="notes"></div>
 			</article>
