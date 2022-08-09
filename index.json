@@ -7,7 +7,10 @@
 		"color": "#cc0044",
 		"storageType": "",
 		"storage": "https://github.com/leaverou/my-lifesheets/mygraine/data.json",
-		"notes": true
+		"notes": true,
+		"description": "migraine tracker",
+		"entries_name": "migraines",
+		"entry_name": "migraine"
 	},
 	"mylife": {
 		"name": "MyLife",
