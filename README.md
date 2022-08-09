@@ -1,4 +1,4 @@
 # My lifesheets
 
-- [🤕 mygraine](mygraine): undefined
+- [🤕 mygraine](mygraine): migraine tracker
 - [😀 MyLife](mylife): entry tracker
