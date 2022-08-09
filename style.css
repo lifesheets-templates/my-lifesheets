@@ -4,11 +4,11 @@
 	accent-color: var(--accent-color);
 }
 
-[data-prefix]:not(empty)::before {
+[data-prefix]:where(:not(:empty, .empty), [mv-mode="edit"])::before {
 	content: attr(data-prefix);
 }
 
-[data-suffix]:not(empty)::after {
+[data-suffix]:where(:not(:empty, .empty), [mv-mode="edit"])::after {
 	content: attr(data-suffix);
 }
 
@@ -70,8 +70,7 @@ body > header h1 {
 		white-space: nowrap
 	}
 
-body > header h1::before {
-			content: var(--icon);
+body > header h1 .app-icon {
 			display: inline-block;
 			vertical-align: middle;
 			margin-right: .2em;
@@ -119,8 +118,8 @@ article.entry header,
 		flex-wrap: wrap;
 	}
 
-article.entry header > div {
-		padding: .5em 0;
+article.entry header {
+		padding: .5em;
 	}
 
 article.entry [property="date"] {
@@ -137,14 +136,6 @@ article.entry [property="notes"] {
 		padding: .5em;
 		background: hsla(0, 0%, 100%, .4);
 	}
-
-article.entry [property="startTime"] {
-		margin-left: .4em;
-	}
-
-article.entry [property="startTime"]:not(:empty)::before {
-			content: "at ";
-		}
 
 article.entry .end-time,
 	article.entry .duration {
@@ -182,6 +173,20 @@ meta[property][mv-mode="edit"] {
 	flex-wrap: wrap;
 	margin: 1em 0;
 }
+
+figure.chart {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid hsl(var(--gray) 50% / .5)
+}
+
+figure.chart > table {
+		margin: auto;
+	}
+
+figure.chart > figcaption {
+		text-align: center;
+	}
 
 .charts {
 	display: grid;
