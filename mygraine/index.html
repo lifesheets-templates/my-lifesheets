@@ -67,8 +67,7 @@
 					<span property="end_date_time" data-uid="13" data-show="false" mv-value="end_date & if(end_time, 'T' & end_time)" class="expression"></span>
 					<span property="duration" data-uid="14" data-show="false" mv-value="end_date_time - date_time" class="expression"></span>
 					<span property="duration_readable" data-uid="15" data-prefix="(" data-suffix=")" data-show="[!!(end_date and (time and end_time))]" mv-value="duration(duration, 2)" class="expression"></span>
-					<meter-discrete property="intensity" data-uid="1" mv-default="3" min="1" max="5" step="1" icon="🤕" class="type-bar discrete"></meter-discrete>
-					<span data-uid="2" mv-value="intensity + 5" class="expression"></span>
+					<meter-discrete property="intensity" data-uid="1" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-bar discrete"></meter-discrete>
 					<span property="side" data-uid="3" mv-options="left, right, both" class="type-options"></span>
 				</header>
 				<div property="notes"></div>
