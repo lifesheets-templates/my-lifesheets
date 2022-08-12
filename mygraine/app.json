@@ -158,17 +158,10 @@
 				"max": 5,
 				"step": 1,
 				"number_style": "discrete",
-				"icon": "🤕"
+				"icon": "🤕",
+				"default": ""
 			},
 			"name": "intensity"
-		},
-		{
-			"uid": 2,
-			"type": "expression",
-			"scope": "entry",
-			"settings": {
-				"expression": "intensity + 5"
-			}
 		},
 		{
 			"uid": 3,
