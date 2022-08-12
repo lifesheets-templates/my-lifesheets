@@ -25,10 +25,11 @@
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
-				"temporal"
+				"temporal",
+				"deletable"
 			],
 			"settings": {
-				"expression": "[weekday(date, 'shortname')]"
+				"expression": "weekday(date, 'shortname')"
 			},
 			"name": "weekday"
 		},
@@ -69,7 +70,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "[date][if(time, 'T' & time)]"
+				"expression": "date & if(time, 'T' & time)"
 			},
 			"name": "date_time"
 		},
@@ -114,7 +115,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "[end_date][if(end_time, 'T' & end_time)]"
+				"expression": "end_date & if(end_time, 'T' & end_time)"
 			},
 			"name": "end_date_time"
 		},
@@ -127,7 +128,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "[end_date_time - date_time]"
+				"expression": "end_date_time - date_time"
 			},
 			"name": "duration"
 		},
@@ -136,11 +137,14 @@
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
-				"temporal"
+				"temporal",
+				"deletable"
 			],
 			"settings": {
 				"visible": "[end_date and (time and end_time)]",
-				"expression": "([duration(duration, 2)])"
+				"expression": "duration(duration, 2)",
+				"prefix": "(",
+				"suffix": ")"
 			},
 			"name": "duration_readable"
 		},
@@ -149,10 +153,12 @@
 			"type": "property",
 			"scope": "entry",
 			"settings": {
-				"type": "number",
+				"type": "bar",
 				"min": 1,
-				"max": 10,
-				"step": 1
+				"max": 5,
+				"step": 1,
+				"number_style": "discrete",
+				"icon": "🤕"
 			},
 			"name": "intensity"
 		},
