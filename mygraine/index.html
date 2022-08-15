@@ -33,12 +33,12 @@
 			
 <figure class="chart">
 	
-	<h-chart type="bar">
+	<h-chart type="bar" x="b">
 		<table>
 			<thead>
 				<tr>
-					<th>Month</th>
-					<th>Number of migraines</th>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Number of migraines</th>
 				</tr>
 			</thead>
 			<tbody mv-list="chart16" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
