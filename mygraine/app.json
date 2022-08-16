@@ -149,6 +149,12 @@
 			"name": "duration_readable"
 		},
 		{
+			"uid": 3,
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
 			"uid": 1,
 			"type": "property",
 			"scope": "entry",
