@@ -209,6 +209,36 @@
 				"suffix": " since last migraine",
 				"visible": "[last(end_time)]"
 			}
+		},
+		{
+			"uid": 7,
+			"type": "spacer",
+			"scope": "root",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"uid": 6,
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "new",
+				"target": "add(entry)",
+				"appearance": "stretch",
+				"label": "Start migraine"
+			}
+		},
+		{
+			"uid": 8,
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "last",
+				"target": "last(entry)",
+				"label": "End migraine",
+				"appearance": "stretch"
+			}
 		}
 	],
 	"charts": [
