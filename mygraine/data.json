@@ -1,180 +1,365 @@
 {
 	"entry": [
 		{
-			"date": "2022-07-29",
-			"time": "20:35",
-			"end_time": "23:25",
-			"end_date": "2022-07-29",
+			"date": "2019-06-15",
 			"intensity": 1,
-			"side": "right"
+			"end_date": "2019-06-15"
 		},
 		{
-			"date": "2022-07-21",
-			"time": "21:00",
-			"end_time": "01:00",
-			"end_date": "2022-07-22",
+			"date": "2019-06-22",
 			"intensity": 2,
-			"side": "right"
+			"time": "13:00",
+			"end_time": "17:00",
+			"end_date": "2019-06-22"
 		},
 		{
-			"date": "2022-07-09",
-			"time": "02:00",
-			"end_time": "06:00",
-			"end_date": "2022-07-09",
+			"date": "2019-06-26",
 			"intensity": 2,
-			"side": "left"
-		},
-		{
-			"date": "2022-07-03",
-			"time": "09:30",
-			"end_time": "15:30",
-			"end_date": "2022-07-03",
-			"intensity": 2,
-			"side": "left"
-		},
-		{
-			"date": "2022-06-14",
-			"time": "05:30",
-			"end_time": "11:30",
-			"end_date": "2022-06-14",
-			"intensity": 3,
-			"side": "left"
-		},
-		{
-			"date": "2022-06-11",
-			"time": "09:15",
-			"intensity": 3,
-			"side": "left",
-			"notes": "Ended at 4"
-		},
-		{
-			"date": "2022-06-06"
-		},
-		{
-			"date": "2022-06-03",
-			"time": "07:30",
-			"end_time": "12:30",
-			"end_date": "2022-06-03",
-			"notes": "End time approximate. "
-		},
-		{
-			"date": "2022-05-28",
-			"time": "14:50"
-		},
-		{
-			"date": "2022-05-09",
-			"time": "14:30",
-			"end_time": "18:30",
-			"end_date": "2022-05-09",
-			"intensity": 1,
-			"side": "left"
-		},
-		{
-			"date": "2022-05-07",
-			"time": "00:30",
-			"end_time": "07:00",
-			"end_date": "2022-05-07",
-			"intensity": 3,
-			"side": "left"
-		},
-		{
-			"date": "2022-04-16",
-			"time": "07:00",
-			"end_time": "12:45",
-			"end_date": "2022-04-16",
-			"intensity": 2,
-			"side": "left"
-		},
-		{
-			"date": "2022-04-12",
-			"time": "00:05",
-			"end_time": "05:00",
-			"end_date": "2022-04-12",
-			"intensity": 4,
-			"side": "left",
-			"notes": "End time approximate. "
-		},
-		{
-			"date": "2022-04-07",
-			"time": "04:00",
-			"end_time": "08:45",
-			"end_date": "2022-04-07",
-			"intensity": 2,
-			"side": "left"
-		},
-		{
-			"date": "2022-04-04",
-			"time": "08:00",
-			"end_time": "11:00",
-			"end_date": "2022-04-04",
-			"intensity": 2,
-			"side": "left",
-			"notes": "Got a headache 3 hours later that I thought would turn into another migraine"
-		},
-		{
-			"date": "2022-03-31",
-			"time": "08:30",
-			"end_time": "12:00",
-			"end_date": "2022-03-31",
-			"intensity": 2,
-			"side": "right",
-			"notes": "Grumbling for 24 hours before"
-		},
-		{
-			"date": "2022-03-28",
-			"time": "20:00",
-			"end_time": "00:00",
-			"end_date": "2022-03-29",
-			"intensity": 1,
-			"side": "right"
-		},
-		{
-			"date": "2022-03-23",
-			"time": "23:00",
-			"end_time": "03:00",
-			"end_date": "2022-03-24",
-			"intensity": 1,
-			"side": "left"
-		},
-		{
-			"date": "2022-03-17",
-			"time": "08:15"
-		},
-		{
-			"date": "2022-03-14",
-			"time": "08:30",
+			"time": "10:00",
 			"end_time": "13:00",
-			"end_date": "2022-03-14",
+			"end_date": "2019-06-26"
+		},
+		{
+			"date": "2019-07-02",
+			"notes": "Was able to be functional after only an hour's rest, though aftereffects lasted well into the night.",
 			"intensity": 2,
-			"side": "left"
+			"end_date": "2019-07-02"
 		},
 		{
-			"date": "2022-03-07",
-			"time": "07:45",
-			"intensity": 3
-		},
-		{
-			"date": "2022-03-05",
-			"time": "18:15",
-			"end_time": "21:15",
-			"end_date": "2022-03-05",
-			"intensity": 1,
-			"side": "right"
-		},
-		{
-			"date": "2022-03-03",
-			"time": "08:15",
-			"end_time": "12:15",
-			"end_date": "2022-03-03"
-		},
-		{
-			"date": "2022-03-02",
-			"time": "04:15",
-			"end_time": "09:30",
-			"end_date": "2022-03-02",
+			"date": "2019-07-03",
+			"notes": "Almost 5 hours, 2pm to 7pm",
 			"intensity": 3,
-			"side": "left",
-			"notes": "Woke me up, immediately strong. "
+			"end_date": "2019-07-03"
+		},
+		{
+			"date": "2019-07-04",
+			"end_date": "2019-07-04"
+		},
+		{
+			"date": "2019-07-17",
+			"end_date": "2019-07-17"
+		},
+		{
+			"date": "2019-07-22",
+			"end_date": "2019-07-22"
+		},
+		{
+			"date": "2019-07-23",
+			"intensity": 1,
+			"end_date": "2019-07-23"
+		},
+		{
+			"date": "2019-07-24",
+			"intensity": 3,
+			"end_date": "2019-07-24"
+		},
+		{
+			"date": "2019-07-25",
+			"intensity": 5,
+			"end_date": "2019-07-25"
+		},
+		{
+			"date": "2019-07-26",
+			"intensity": 2,
+			"time": "14:30",
+			"end_time": "17:00",
+			"end_date": "2019-07-26"
+		},
+		{
+			"date": "2019-07-27",
+			"notes": "3pm to 5:30pm",
+			"intensity": 2,
+			"end_date": "2019-07-27"
+		},
+		{
+			"date": "2019-07-29",
+			"end_date": "2019-07-29"
+		},
+		{
+			"date": "2019-07-30",
+			"intensity": 2,
+			"end_date": "2019-07-30"
+		},
+		{
+			"date": "2019-08-01",
+			"notes": "early morning hours",
+			"intensity": 3,
+			"time": "03:00",
+			"end_date": "2019-08-02"
+		},
+		{
+			"date": "2019-08-02",
+			"intensity": 3,
+			"time": "03:00",
+			"end_date": "2019-08-03"
+		},
+		{
+			"date": "2019-08-03",
+			"time": "18:00",
+			"end_time": "21:00",
+			"end_date": "2019-08-03"
+		},
+		{
+			"date": "2019-08-05",
+			"time": "18:00",
+			"end_time": "21:00",
+			"end_date": "2019-08-05"
+		},
+		{
+			"date": "2019-08-07",
+			"notes": "After persistent headache for almost 24 hours",
+			"time": "17:00",
+			"end_time": "20:00",
+			"end_date": "2019-08-07"
+		},
+		{
+			"date": "2019-08-15",
+			"notes": "Early morning hours.",
+			"intensity": 2,
+			"end_date": "2019-08-15"
+		},
+		{
+			"date": "2019-08-15",
+			"time": "15:00",
+			"end_date": "2019-08-16"
+		},
+		{
+			"date": "2019-08-17",
+			"notes": "Early morning hours.",
+			"intensity": 2,
+			"end_date": "2019-08-17"
+		},
+		{
+			"date": "2019-08-17",
+			"intensity": 3,
+			"end_date": "2019-08-17"
+		},
+		{
+			"date": "2019-08-18",
+			"notes": "Headache started around 4pm.",
+			"time": "08:30",
+			"end_date": "2019-08-19"
+		},
+		{
+			"date": "2019-08-20",
+			"notes": "Headache since last night, became a migraine around 6:30am.",
+			"intensity": 3,
+			"time": "06:30",
+			"end_time": "10:30",
+			"end_date": "2019-08-20"
+		},
+		{
+			"date": "2019-08-22",
+			"intensity": 2,
+			"end_date": "2019-08-22"
+		},
+		{
+			"date": "2019-08-23",
+			"intensity": 3,
+			"time": "10:00",
+			"end_date": "2019-08-24"
+		},
+		{
+			"date": "2019-08-24",
+			"intensity": 2,
+			"time": "08:30",
+			"end_time": "11:00",
+			"end_date": "2019-08-24"
+		},
+		{
+			"date": "2019-08-25",
+			"intensity": 2,
+			"time": "03:45",
+			"end_time": "08:30",
+			"end_date": "2019-08-25"
+		},
+		{
+			"date": "2019-08-26",
+			"intensity": 1,
+			"time": "06:30",
+			"end_time": "10:30",
+			"end_date": "2019-08-26"
+		},
+		{
+			"date": "2019-08-31",
+			"time": "15:30",
+			"intensity": 3,
+			"end_time": "18:30",
+			"end_date": "2019-08-31"
+		},
+		{
+			"date": "2019-09-02",
+			"intensity": 2,
+			"notes": "In flight",
+			"end_date": "2019-09-02"
+		},
+		{
+			"date": "2019-09-23",
+			"time": "11:30",
+			"intensity": 3,
+			"end_time": "16:30",
+			"end_date": "2019-09-23"
+		},
+		{
+			"date": "2019-10-08",
+			"time": "03:00",
+			"intensity": 2,
+			"end_time": "07:00",
+			"end_date": "2019-10-08"
+		},
+		{
+			"date": "2019-10-11",
+			"time": "13:00",
+			"intensity": 1,
+			"notes": "Barely a migraine, went away very fast and never fully became a migraine",
+			"end_time": "15:00",
+			"end_date": "2019-10-11"
+		},
+		{
+			"date": "2019-10-18",
+			"time": "17:30",
+			"intensity": 4,
+			"end_time": "01:30",
+			"end_date": "2019-10-19"
+		},
+		{
+			"date": "2019-10-20",
+			"time": "01:00",
+			"intensity": 3,
+			"end_time": "07:00",
+			"end_date": "2019-10-20"
+		},
+		{
+			"date": "2019-10-29",
+			"time": "13:30",
+			"intensity": 3,
+			"end_time": "18:00",
+			"end_date": "2019-10-29"
+		},
+		{
+			"date": "2019-10-30",
+			"intensity": 2,
+			"end_date": "2019-10-30"
+		},
+		{
+			"date": "2019-11-02",
+			"time": "14:00",
+			"intensity": 2,
+			"end_time": "18:00",
+			"end_date": "2019-11-02"
+		},
+		{
+			"date": "2019-11-03",
+			"time": "19:30",
+			"intensity": 3,
+			"end_time": "23:30",
+			"end_date": "2019-11-03"
+		},
+		{
+			"date": "2019-11-05",
+			"time": "05:00",
+			"intensity": 4,
+			"end_time": "11:00",
+			"end_date": "2019-11-05"
+		},
+		{
+			"date": "2019-11-08",
+			"time": "10:30",
+			"intensity": 2,
+			"end_time": "14:30",
+			"end_date": "2019-11-08"
+		},
+		{
+			"date": "2019-11-10",
+			"time": "11:30",
+			"intensity": 2,
+			"end_time": "15:00",
+			"end_date": "2019-11-10"
+		},
+		{
+			"date": "2019-11-14",
+			"time": "07:30",
+			"intensity": 3,
+			"end_time": "13:00",
+			"end_date": "2019-11-14"
+		},
+		{
+			"date": "2019-11-15",
+			"time": "10:00",
+			"intensity": 3,
+			"end_time": "16:00",
+			"end_date": "2019-11-15"
+		},
+		{
+			"date": "2019-11-18",
+			"time": "08:45",
+			"intensity": 3,
+			"end_time": "14:45",
+			"end_date": "2019-11-18"
+		},
+		{
+			"date": "2019-11-20",
+			"time": "12:15",
+			"intensity": 3,
+			"end_time": "16:45",
+			"end_date": "2019-11-20"
+		},
+		{
+			"date": "2019-11-23",
+			"time": "03:15",
+			"intensity": 4,
+			"end_time": "10:00",
+			"end_date": "2019-11-23"
+		},
+		{
+			"date": "2019-11-25",
+			"time": "19:30",
+			"intensity": 2,
+			"end_time": "22:30",
+			"end_date": "2019-11-25"
+		},
+		{
+			"date": "2019-11-27",
+			"time": "11:00",
+			"end_date": "2019-11-28"
+		},
+		{
+			"date": "2019-11-28",
+			"time": "22:00",
+			"end_time": "03:00",
+			"end_date": "2019-11-29"
+		},
+		{
+			"date": "2019-11-30",
+			"time": "11:00",
+			"end_time": "16:00",
+			"end_date": "2019-11-30"
+		},
+		{
+			"date": "2019-12-01",
+			"time": "09:00",
+			"intensity": 1,
+			"notes": "Went away very quickly after Relpax and never became a full-on migraine",
+			"end_time": "10:00",
+			"end_date": "2019-12-01"
+		},
+		{
+			"date": "2019-12-03",
+			"time": "09:00",
+			"end_time": "14:00",
+			"end_date": "2019-12-03"
+		},
+		{
+			"date": "2019-12-04",
+			"time": "11:00",
+			"end_time": "17:00",
+			"end_date": "2019-12-04"
+		},
+		{
+			"date": "2019-12-07",
+			"time": "02:00",
+			"end_time": "06:30",
+			"end_date": "2019-12-07"
 		}
 	]
 }
