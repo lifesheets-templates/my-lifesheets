@@ -149,12 +149,6 @@
 			"name": "duration_readable"
 		},
 		{
-			"uid": 3,
-			"type": "spacer",
-			"scope": "entry",
-			"settings": {}
-		},
-		{
 			"uid": 1,
 			"type": "property",
 			"scope": "entry",
@@ -178,16 +172,42 @@
 				"options": "left, right, both"
 			},
 			"name": "side"
-		}
-	],
-	"root": [
+		},
+		{
+			"uid": 3,
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
 		{
 			"uid": 4,
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "duration($now - first(end_date_time), 2)",
+				"expression": "duration(end_date_time - $previous.end_date_time, 2)",
+				"visible": "[end_time and $previous.end_time]",
 				"suffix": " since last migraine"
+			}
+		}
+	],
+	"root": [
+		{
+			"uid": 3,
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "count(entry)",
+				"suffix": " recorded migraines •"
+			}
+		},
+		{
+			"uid": 4,
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "duration($now - last(end_date_time), 2)",
+				"suffix": " since last migraine",
+				"visible": "[last(end_time)]"
 			}
 		}
 	],
