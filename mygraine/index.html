@@ -54,6 +54,11 @@
 				<span data-uid="3" data-suffix=" recorded migraines •" mv-value="count(entry)" class="expression"></span>
 				<span data-uid="4" data-suffix=" since last migraine" data-show="[!!(last(end_time))]" mv-value="duration($now - last(end_date_time), 2)" class="expression"></span>
 			</div>
+			<span data-uid="7" class="appearance-line"></span>
+			<div class="field-row">
+				<button data-uid="6" mv-action="undefined" class="appearance-stretch">Start migraine</button>
+				<button data-uid="8" mv-action="undefined" class="appearance-stretch">End migraine</button>
+			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header class="field-row">
