@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-design>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,9 @@
 			--icon: "🤕";
 		}
 	</style>
+	<link rel="stylesheet" href="http://localhost:8002/lifesheets/app/sheet/design.css">
+	<style id="selected_styles"></style>
+	<script src="http://localhost:8002/lifesheets/app/sheet/design.js" type="module"></script>
 	
 	
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
@@ -30,7 +33,7 @@
 
 	<main>
 		<div class="chart-row">
-				<figure data-uid="16" class="chart appearance-stretch">
+				<figure class="chart appearance-stretch">
 	
 	<h-chart type="bar" x="b">
 		<table>
@@ -40,7 +43,7 @@
 					<th hc-name="b">Number of migraines</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart16" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart19" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[count($items)]</td>
@@ -51,34 +54,32 @@
 	<figcaption>Number of migraines per month</figcaption></figure>
 			</div>
 		<div class="field-row">
-				<span data-uid="3" data-suffix=" recorded migraines •" mv-value="count(entry)" class="expression"></span>
-				<span data-uid="4" data-suffix=" since last migraine" data-show="[!!(last(end_time))]" mv-value="duration($now - last(end_date_time), 2)" class="expression"></span>
+				<span data-suffix=" recorded migraines •" mv-value="count(entry)" class="expression"></span>
+				<span data-suffix=" since last migraine" data-show="[!!(last(end_time))]" mv-value="duration($now - last(end_date_time), 2)" class="expression"></span>
 			</div>
-			<span data-uid="7" class="appearance-line"></span>
+			<span class="appearance-line"></span>
 			<div class="field-row">
-				<button data-uid="6" mv-action="undefined" class="appearance-stretch">Start migraine</button>
-				<button data-uid="8" mv-action="undefined" class="appearance-stretch">End migraine</button>
+				<button mv-action="add(end_time: [time($now)], entry)" class="appearance-stretch">Start migraine</button>
+				<button mv-action="set(last(entry), end_time: [time($now)])" class="appearance-stretch">End migraine</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header class="field-row">
-					<span property="weekday" data-uid="7" mv-value="weekday(date, 'shortname')" class="expression"></span>
-					<time property="date" data-uid="8" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
-					<time property="time" data-uid="9" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
-					<span property="date_time" data-uid="10" data-show="false" mv-value="date & if(time, 'T' & time)" class="expression"></span>
-					<time property="end_time" data-uid="11" data-prefix=" to " data-show="[!!(time)]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
-					<time property="end_date" data-uid="12" data-prefix=" on " data-show="[!!(time and end_time)]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
-					<span property="end_date_time" data-uid="13" data-show="false" mv-value="end_date & if(end_time, 'T' & end_time)" class="expression"></span>
-					<span property="duration" data-uid="14" data-show="false" mv-value="end_date_time - date_time" class="expression"></span>
-					<span property="duration_readable" data-uid="15" data-prefix="(" data-suffix=")" data-show="[!!(end_date and (time and end_time))]" mv-value="duration(duration, 2)" class="expression"></span>
-					<meter-discrete property="intensity" data-uid="1" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-bar discrete"></meter-discrete>
-					<span property="side" data-uid="3" mv-default="50" mv-options="left, right, both" class="type-options"></span>
-					<span data-uid="3" class="appearance-stretch"></span>
-					<span data-uid="4" data-suffix=" since last migraine" data-show="[!!(end_time and $previous.end_time)]" mv-value="duration(end_date_time - $previous.end_date_time, 2)" class="expression"></span>
+					<span property="weekday" mv-value="weekday(date, 'shortname')" class="expression"></span>
+					<time property="date" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
+					<time property="time" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<span property="date_time" data-show="false" mv-value="date & if(time, 'T' & time)" class="expression"></span>
+					<time property="end_time" data-prefix=" to " data-show="[!!(time)]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<time property="end_date" data-prefix=" on " data-show="[!!(time and end_time)]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
+					<span property="end_date_time" data-show="false" mv-value="end_date & if(end_time, 'T' & end_time)" class="expression"></span>
+					<span property="duration" data-show="false" mv-value="end_date_time - date_time" class="expression"></span>
+					<span property="duration_readable" data-prefix="(" data-suffix=")" data-show="[!!(end_date and (time and end_time))]" mv-value="duration(duration, 2)" class="expression"></span>
+					<meter-discrete property="intensity" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-bar discrete"></meter-discrete>
+					<span property="side" mv-options="left, right, both" class="type-options"></span>
+					<span class="appearance-stretch"></span>
+					<span data-suffix=" since last migraine" data-show="[!!(end_time and $previous.end_time)]" mv-value="duration(end_date_time - $previous.end_date_time, 2)" class="expression"></span>
 				</header>
-				<div property="notes"></div>
 			</article>
-			<button type="button" class="mv-add mv-add-entry" mv-action="add(entry)">Add migraine</button>
 		</section>
 	</main>
 
