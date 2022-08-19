@@ -21,7 +21,6 @@
 	},
 	"entry": [
 		{
-			"uid": 7,
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -34,7 +33,6 @@
 			"name": "weekday"
 		},
 		{
-			"uid": 8,
 			"type": "property",
 			"scope": "entry",
 			"flags": [
@@ -47,7 +45,6 @@
 			"name": "date"
 		},
 		{
-			"uid": 9,
 			"type": "property",
 			"scope": "entry",
 			"flags": [
@@ -62,7 +59,6 @@
 			"name": "time"
 		},
 		{
-			"uid": 10,
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -75,7 +71,6 @@
 			"name": "date_time"
 		},
 		{
-			"uid": 11,
 			"type": "property",
 			"scope": "entry",
 			"flags": [
@@ -91,7 +86,6 @@
 			"name": "end_time"
 		},
 		{
-			"uid": 12,
 			"type": "property",
 			"scope": "entry",
 			"flags": [
@@ -107,7 +101,6 @@
 			"name": "end_date"
 		},
 		{
-			"uid": 13,
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -120,7 +113,6 @@
 			"name": "end_date_time"
 		},
 		{
-			"uid": 14,
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -133,7 +125,6 @@
 			"name": "duration"
 		},
 		{
-			"uid": 15,
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -149,7 +140,6 @@
 			"name": "duration_readable"
 		},
 		{
-			"uid": 1,
 			"type": "property",
 			"scope": "entry",
 			"settings": {
@@ -164,7 +154,6 @@
 			"name": "intensity"
 		},
 		{
-			"uid": 3,
 			"type": "property",
 			"scope": "entry",
 			"settings": {
@@ -174,13 +163,11 @@
 			"name": "side"
 		},
 		{
-			"uid": 3,
 			"type": "spacer",
 			"scope": "entry",
 			"settings": {}
 		},
 		{
-			"uid": 4,
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
@@ -192,7 +179,6 @@
 	],
 	"root": [
 		{
-			"uid": 3,
 			"type": "expression",
 			"scope": "root",
 			"settings": {
@@ -201,9 +187,8 @@
 			}
 		},
 		{
-			"uid": 4,
 			"type": "expression",
-			"scope": "entry",
+			"scope": "root",
 			"settings": {
 				"expression": "duration($now - last(end_date_time), 2)",
 				"suffix": " since last migraine",
@@ -211,7 +196,6 @@
 			}
 		},
 		{
-			"uid": 7,
 			"type": "spacer",
 			"scope": "root",
 			"settings": {
@@ -219,7 +203,6 @@
 			}
 		},
 		{
-			"uid": 6,
 			"type": "action",
 			"scope": "root",
 			"settings": {
@@ -230,7 +213,6 @@
 			}
 		},
 		{
-			"uid": 8,
 			"type": "action",
 			"scope": "root",
 			"settings": {
@@ -243,9 +225,8 @@
 	],
 	"charts": [
 		{
-			"uid": 16,
 			"type": "chart",
-			"scope": "root",
+			"scope": "charts",
 			"settings": {
 				"aggregate": "count",
 				"aggregate_of": "entry"
