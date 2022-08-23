@@ -1,0 +1,101 @@
+{
+	"app": {
+		"name": "Foot Pain",
+		"slug": "foot-pain",
+		"entry_name": "entry",
+		"description": "entry tracker",
+		"private": false,
+		"icon": "😢",
+		"color": "#0cc4e9",
+		"storageType": "",
+		"storage": "",
+		"notes": true,
+		"entries_name": "entries"
+	},
+	"temporal": {
+		"times": "",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]"
+			},
+			"name": "date"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "options",
+				"options": "Wakeup,Activity,Resting",
+				"prefix": "Time: ",
+				"default": "Wakeup"
+			},
+			"name": "time"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "bar",
+				"max": 10,
+				"number_style": "discrete",
+				"icon": "😢",
+				"default": "0"
+			},
+			"name": "level"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"label": "Add entry",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "stretch"
+			}
+		}
+	],
+	"charts": []
+}
