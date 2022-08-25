@@ -209,7 +209,8 @@
 				"target_preset": "new",
 				"target": "add(entry)",
 				"appearance": "stretch",
-				"label": "Start migraine"
+				"label": "Start migraine",
+				"set_pairs": []
 			}
 		},
 		{
@@ -219,7 +220,13 @@
 				"target_preset": "last",
 				"target": "last(entry)",
 				"label": "End migraine",
-				"appearance": "stretch"
+				"appearance": "stretch",
+				"set_pairs": [
+					{
+						"name": "end_time",
+						"value": "time($now)"
+					}
+				]
 			}
 		}
 	],
