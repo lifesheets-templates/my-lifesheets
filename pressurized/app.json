@@ -129,22 +129,24 @@
 	"charts": [
 		{
 			"type": "chart",
-			"scope": "root",
+			"scope": "charts",
 			"settings": {
 				"group_by": "day",
 				"aggregate": "average",
 				"type": "line",
-				"aggregate_of": "systolic"
+				"aggregate_of": "systolic",
+				"orientation": "horizontal"
 			}
 		},
 		{
 			"type": "chart",
-			"scope": "root",
+			"scope": "charts",
 			"settings": {
 				"aggregate": "average",
 				"aggregate_of": "diastolic",
 				"group_by": "day",
-				"type": "line"
+				"type": "line",
+				"orientation": "horizontal"
 			}
 		}
 	]
