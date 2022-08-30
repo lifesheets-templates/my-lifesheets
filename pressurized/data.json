@@ -1,0 +1,31 @@
+{
+	"entry": [
+		{
+			"date": "2022-08-20",
+			"systolic": 140,
+			"diastolic": 91
+		},
+		{
+			"date": "2022-08-22",
+			"systolic": 130,
+			"diastolic": 85
+		},
+		{
+			"date": "2022-08-23",
+			"systolic": 116,
+			"diastolic": 76,
+			"notes": "Right after waking"
+		},
+		{
+			"date": "2022-08-24",
+			"systolic": 180,
+			"diastolic": 114,
+			"notes": "Was very stressed about user study"
+		},
+		{
+			"date": "2022-08-25",
+			"systolic": 141,
+			"diastolic": 84
+		}
+	]
+}
