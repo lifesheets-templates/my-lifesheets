@@ -59,7 +59,8 @@
 			"settings": {
 				"prefix": "/ ",
 				"suffix": " mmHg",
-				"default": ""
+				"default": "",
+				"max": 200
 			},
 			"name": "diastolic"
 		},
@@ -73,7 +74,7 @@
 			"scope": "entry",
 			"settings": {
 				"expression": "if((130 < systolic or 80 < diastolic) and systolic < 140 and diastolic < 90, 'Hypertension Stage 1')",
-				"text_color": "#e65d19",
+				"text_color": "#e69100",
 				"formatting": [
 					"b"
 				]
