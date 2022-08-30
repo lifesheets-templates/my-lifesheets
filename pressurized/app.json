@@ -129,7 +129,7 @@
 	"charts": [
 		{
 			"type": "chart",
-			"scope": "charts",
+			"scope": "root",
 			"settings": {
 				"group_by": "day",
 				"aggregate": "average",
@@ -139,7 +139,7 @@
 		},
 		{
 			"type": "chart",
-			"scope": "charts",
+			"scope": "root",
 			"settings": {
 				"aggregate": "average",
 				"aggregate_of": "diastolic",
