@@ -72,8 +72,30 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "if(systolic > 140 or diastolic > 90, 'Hypertension Stage 1')",
+				"expression": "if((130 < systolic or 80 < diastolic) and systolic < 140 and diastolic < 90, 'Hypertension Stage 1')",
 				"text_color": "#e65d19",
+				"formatting": [
+					"b"
+				]
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "if((140 <= systolic or 90 <= diastolic) and systolic < 180 and diastolic < 120, 'Hypertension Stage 2')",
+				"text_color": "#e65d19",
+				"formatting": [
+					"b"
+				]
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "if(systolic >= 180 or diastolic >= 120, 'Hypertensive Crisis')",
+				"text_color": "#cc0000",
 				"formatting": [
 					"b"
 				]
