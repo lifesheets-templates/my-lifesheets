@@ -69,6 +69,17 @@
 			"settings": {}
 		},
 		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "if(systolic > 140 or diastolic > 90, 'Hypertension Stage 1')",
+				"text_color": "#e65d19",
+				"formatting": [
+					"b"
+				]
+			}
+		},
+		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
@@ -92,5 +103,26 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"group_by": "day",
+				"aggregate": "average",
+				"type": "line",
+				"aggregate_of": "systolic"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "diastolic",
+				"group_by": "day",
+				"type": "line"
+			}
+		}
+	]
 }
