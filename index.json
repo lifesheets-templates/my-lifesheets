@@ -39,5 +39,18 @@
 		"_entryName": "entry",
 		"entry_name": "entry",
 		"entries_name": "entries"
+	},
+	"pressurized": {
+		"name": "Pressurized",
+		"slug": "pressurized",
+		"entry_name": "measurement",
+		"description": "blood pressure tracker",
+		"private": false,
+		"icon": "🫀",
+		"color": "#6f923a",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "measurements"
 	}
 }
