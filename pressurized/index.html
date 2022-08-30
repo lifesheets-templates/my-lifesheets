@@ -24,12 +24,51 @@
 			<span class="app-name">Pressurized</span>
 		</h1>
 		<h2>blood pressure tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="line" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average systolic</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart11" mv-value="groupBy(systolic, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average systolic per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="line" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average diastolic</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart12" mv-value="groupBy(diastolic, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average diastolic per day</figcaption></figure>
+			</div>
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" mv-action="add(entry)" class="appearance-stretch">Add measurement</button>
@@ -42,6 +81,7 @@
 					<span property="systolic" data-type="property" mv-editor-type="number" mv-editor-min="1" mv-editor-max="250" mv-editor-step="1" class="type-number"></span>
 					<span property="diastolic" data-type="property" data-prefix="/ " data-suffix=" mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
+					<span data-type="expression" mv-value="if(systolic > 140 or diastolic > 90, 'Hypertension Stage 1')" class="bold" style="color: #e65d19"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
