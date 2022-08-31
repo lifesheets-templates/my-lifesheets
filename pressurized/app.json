@@ -13,7 +13,7 @@
 		"entries_name": "measurements"
 	},
 	"temporal": {
-		"times": "",
+		"times": "yes",
 		"ranges": ""
 	},
 	"entry": [
@@ -43,6 +43,32 @@
 				]
 			},
 			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "date & if(time, 'T' & time)"
+			},
+			"name": "date_time"
 		},
 		{
 			"type": "property",
