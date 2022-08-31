@@ -40,7 +40,7 @@
 					<th hc-name="b">Average systolic</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart11" mv-value="groupBy(systolic, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart13" mv-value="groupBy(systolic, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -59,7 +59,7 @@
 					<th hc-name="b">Average diastolic</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart12" mv-value="groupBy(diastolic, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart14" mv-value="groupBy(diastolic, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -78,7 +78,7 @@
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
-					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" datetime="HH:mm" class="type-time"></time>
+					<time property="time" data-type="property" data-prefix=" @ " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" datetime="HH:mm" class="type-time"></time>
 					<span property="date_time" data-type="expression" data-show="false" mv-value="date & if(time, 'T' & time)"></span>
 					<span property="systolic" data-type="property" mv-editor-type="number" mv-editor-min="1" mv-editor-max="250" mv-editor-step="1" class="type-number"></span>
 					<span property="diastolic" data-type="property" data-prefix="/ " data-suffix=" mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="200" mv-editor-step="1" class="type-number"></span>
