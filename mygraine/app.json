@@ -146,13 +146,14 @@
 			"type": "property",
 			"scope": "entry",
 			"settings": {
-				"type": "bar",
+				"type": "number",
 				"min": 1,
 				"max": 5,
 				"step": 1,
-				"number_style": "discrete",
+				"number_style": "bar",
 				"icon": "🤕",
-				"default": ""
+				"default": "",
+				"bar_style": "discrete"
 			},
 			"name": "intensity"
 		},
