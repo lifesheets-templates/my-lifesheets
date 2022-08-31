@@ -135,7 +135,7 @@
 				"aggregate": "average",
 				"type": "line",
 				"aggregate_of": "systolic",
-				"orientation": "vertical"
+				"orientation": "horizontal"
 			}
 		},
 		{
@@ -146,7 +146,7 @@
 				"aggregate_of": "diastolic",
 				"group_by": "day",
 				"type": "line",
-				"orientation": "vertical"
+				"orientation": "horizontal"
 			}
 		}
 	]
