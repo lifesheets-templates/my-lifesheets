@@ -51,7 +51,7 @@
 				"temporal"
 			],
 			"settings": {
-				"prefix": " at ",
+				"prefix": " @ ",
 				"type": "time",
 				"default": "[time($startup, 'hours')]",
 				"format": "[time(time, 'minutes')]"
