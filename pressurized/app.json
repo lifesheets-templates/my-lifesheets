@@ -51,7 +51,7 @@
 				"temporal"
 			],
 			"settings": {
-				"prefix": " @ ",
+				"prefix": " at ",
 				"type": "time",
 				"default": "[time($startup, 'hours')]",
 				"format": "[time(time, 'minutes')]"
@@ -161,7 +161,8 @@
 				"aggregate": "average",
 				"type": "line",
 				"aggregate_of": "systolic",
-				"orientation": "horizontal"
+				"orientation": "horizontal",
+				"smooth": true
 			}
 		},
 		{
@@ -172,7 +173,9 @@
 				"aggregate_of": "diastolic",
 				"group_by": "day",
 				"type": "line",
-				"orientation": "horizontal"
+				"orientation": "horizontal",
+				"area": false,
+				"smooth": true
 			}
 		}
 	]
