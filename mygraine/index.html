@@ -24,14 +24,15 @@
 			<span class="app-name">mygraine</span>
 		</h1>
 		<h2>migraine tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
-	<main>
-		<div class="chart-row">
-				<figure data-type="chart" class="chart appearance-stretch type-bar">
+	<main class="charts-first">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="bar" x="b">
+	<h-chart type="bar">
 		<table>
 			<thead>
 				<tr>
@@ -49,7 +50,8 @@
 	</h-chart>
 	<figcaption>Number of migraines per month</figcaption></figure>
 			</div>
-		<div class="field-row">
+		<a id=entries></a>
+			<div class="field-row">
 				<span data-type="expression" data-suffix=" recorded migraines •" mv-value="count(entry)"></span>
 				<span data-type="expression" data-suffix=" since last migraine" data-show="[!!(last(end_time))]" mv-value="duration($now - last(end_date_time), 2)"></span>
 			</div>
@@ -62,10 +64,10 @@
 			<article mv-list-item class="entry">
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
-					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
-					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" datetime="HH:mm" class="type-time"></time>
 					<span property="date_time" data-type="expression" data-show="false" mv-value="date & if(time, 'T' & time)"></span>
-					<time property="end_time" data-type="property" data-prefix=" to " data-show="[!!(time)]" mv-edit-type="inline" mv-editor-type="time" class="type-time">[time(time, 'minutes')]</time>
+					<time property="end_time" data-type="property" data-prefix=" to " data-show="[!!(time)]" mv-edit-type="inline" mv-editor-type="time" datetime="HH:mm" class="type-time"></time>
 					<time property="end_date" data-type="property" data-prefix=" on " data-show="[!!(time and end_time)]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="end_date & if(end_time, 'T' & end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
