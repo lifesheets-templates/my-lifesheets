@@ -72,7 +72,7 @@
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="end_date & if(end_time, 'T' & end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[!!(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
-					<meter-discrete property="intensity" data-type="property" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-bar discrete"></meter-discrete>
+					<meter-discrete property="intensity" data-type="property" mv-editor-type="number" mv-editor-min="1" mv-editor-max="5" mv-editor-step="1" mv-edit-as="meter" icon="🤕" class="type-number bar"></meter-discrete>
 					<span property="side" data-type="property" mv-options="left, right, both" class="type-options"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span data-type="expression" data-suffix=" since last migraine" data-show="[!!(end_time and $previous.end_time)]" mv-value="duration(end_date_time - $previous.end_date_time, 2)"></span>
