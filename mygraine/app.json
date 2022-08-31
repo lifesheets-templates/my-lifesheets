@@ -40,7 +40,10 @@
 			],
 			"settings": {
 				"type": "date",
-				"default": "[$today]"
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
 			},
 			"name": "date"
 		},
@@ -236,7 +239,8 @@
 			"scope": "charts",
 			"settings": {
 				"aggregate": "count",
-				"aggregate_of": "entry"
+				"aggregate_of": "entry",
+				"orientation": "horizontal"
 			}
 		}
 	]
