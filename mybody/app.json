@@ -85,7 +85,7 @@
 			"scope": "entry",
 			"settings": {
 				"prefix": "BMI: ",
-				"expression": "weight / (height * height)"
+				"expression": "weight / (height/100 * height/100)"
 			},
 			"name": "bmi"
 		},
