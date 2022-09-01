@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>MyBody: entry tracker</title>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #5fa6c4;
+			--icon: "💪🏼";
+		}
+	</style>
+	
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="mybody" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/mybody/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">💪🏼</span>
+			<span class="app-name">MyBody</span>
+		</h1>
+		<h2>entry tracker</h2>
+		<div class="mv-bar mv-ui"></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			
+		<a id=entries></a>
+			<div class="field-row">
+				<span property="height" data-type="property" data-prefix="Height: " data-suffix="cm" mv-default="160" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+			</div>
+			<span data-type="spacer" class="appearance-line"></span>
+			<div class="field-row">
+				<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-stretch">Add entry</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<span property="weight" data-type="property" data-suffix="kg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<span property="waist" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<span property="hip" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<span property="chest" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<span property="bmi" data-type="expression" data-prefix="BMI: " mv-value="weight / (height * height)"></span>
+				</header>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return value === "edit" ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
