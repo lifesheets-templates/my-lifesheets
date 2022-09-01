@@ -1,0 +1,136 @@
+{
+	"app": {
+		"name": "MyBody",
+		"slug": "mybody",
+		"entry_name": "entry",
+		"description": "entry tracker",
+		"private": false,
+		"icon": "💪🏼",
+		"color": "#5fa6c4",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "entries"
+	},
+	"temporal": {
+		"times": "",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "kg",
+				"default": ""
+			},
+			"name": "weight"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"default": ""
+			},
+			"name": "waist"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"default": ""
+			},
+			"name": "hip"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"default": ""
+			},
+			"name": "chest"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"prefix": "BMI: ",
+				"expression": "weight / (height * height)"
+			},
+			"name": "bmi"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "property",
+			"scope": "root",
+			"settings": {
+				"prefix": "Height: ",
+				"default": "160",
+				"suffix": "cm"
+			},
+			"name": "height"
+		},
+		{
+			"type": "spacer",
+			"scope": "root",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"label": "Add entry",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "stretch",
+				"set_pairs": [],
+				"filter_pairs": []
+			}
+		}
+	],
+	"charts": []
+}
