@@ -76,23 +76,12 @@ body > header h1 .app-icon {
 		}
 
 body > header h2 {
-		margin: 0 0 0 .4em;
+		margin: 0 auto 0 .4em;
 		max-width: 5em;
 		text-align: left;
 		opacity: .5;
 		line-height: .9;
 	}
-
-@media (max-width: 450px) {
-
-body > header {
-		display: none;
-}
-	}
-
-.mv-bar.mv-ui {
-	background: transparent;
-}
 
 main {
 	display: flex;
@@ -206,6 +195,20 @@ figure.chart > figcaption {
 		text-align: center;
 	}
 
+figure.chart table {
+		border-collapse: collapse;
+	}
+
+figure.chart table th,
+		figure.chart table td {
+			padding: .3em .5em;
+			border: 1px solid hsl(var(--gray) 85%);
+		}
+
+figure.chart table th {
+			background:hsl(var(--gray) 96%);
+		}
+
 .charts {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -266,17 +269,17 @@ main.charts-below > a[id="stats"],
 	}
 
 .mv-bar.mv-bar.mv-ui {
-		margin-bottom: 0;
-		margin-left: auto;
-	}
-
-.mv-bar.mv-bar {
-
-	&.mv-ui > button:first-child, .mv-bar.mv-ui > .mv-button:first-child {
-		margin-left: 0;
-	}
+	background: transparent;
+	margin-bottom: 0;
+	min-width: min(90vw, 320px);
+	justify-content: end;
 }
 
-.mv-bar.mv-bar.mv-ui .mv-edit {
+.mv-bar.mv-bar.mv-ui.mv-ui > button:first-child,
+	.mv-bar.mv-bar.mv-ui.mv-bar.mv-ui > .mv-button:first-child {
+		margin-left: 0;
+	}
+
+.mv-bar.mv-bar.mv-ui.mv-ui .mv-edit {
 		border-radius: .3em;
 	}
