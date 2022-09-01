@@ -47,7 +47,7 @@
 					<span property="waist" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="hip" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="chest" data-type="property" data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
-					<span property="bmi" data-type="expression" data-prefix="BMI: " mv-value="weight / (height * height)"></span>
+					<span property="bmi" data-type="expression" data-prefix="BMI: " mv-value="weight / (height/100 * height/100)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
