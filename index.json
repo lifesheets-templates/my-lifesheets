@@ -56,14 +56,14 @@
 	"mybody": {
 		"name": "MyBody",
 		"slug": "mybody",
-		"entry_name": "entry",
-		"description": "entry tracker",
+		"entry_name": "measurement",
+		"description": "measurement tracker",
 		"private": false,
 		"icon": "💪🏼",
 		"color": "#5fa6c4",
 		"storageType": "",
 		"storage": "",
 		"charts_placement": "",
-		"entries_name": "entries"
+		"entries_name": "measurements"
 	}
 }
