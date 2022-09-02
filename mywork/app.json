@@ -144,9 +144,20 @@
 			"scope": "entry",
 			"settings": {
 				"type": "options",
-				"options": "Synergy, Breeze, Quest"
+				"options": "Synergy, Breeze, Quest",
+				"default": "",
+				"prefix": "Project: "
 			},
-			"name": "Project"
+			"name": "project"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "80 * hours(end_date_time - date_time)",
+				"prefix": "$"
+			},
+			"name": "earnings"
 		},
 		{
 			"type": "property",
@@ -160,6 +171,15 @@
 		}
 	],
 	"root": [
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "sum(earnings)",
+				"prefix": "$",
+				"suffix": " total earnings"
+			}
+		},
 		{
 			"type": "action",
 			"scope": "root",
@@ -191,5 +211,16 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "table",
+				"aggregate": "sum",
+				"aggregate_of": "earnings",
+				"group_by": "project"
+			}
+		}
+	]
 }
