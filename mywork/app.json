@@ -1,0 +1,195 @@
+{
+	"app": {
+		"name": "MyWork",
+		"slug": "mywork",
+		"entry_name": "work",
+		"description": "work time tracker",
+		"private": false,
+		"icon": "👩🏽‍💻",
+		"color": "#83bb1b",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "works"
+	},
+	"temporal": {
+		"times": "yes",
+		"ranges": "yes"
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " to ",
+				"type": "time",
+				"default": "",
+				"visible": "[time]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "end_time"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"prefix": " on ",
+				"visible": "[if(time and end_time, if(end_date = date, 'edit', true), false)]",
+				"default": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
+				"min_date": "[date]"
+			},
+			"name": "end_date"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(end_date, end_time)"
+			},
+			"name": "end_date_time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "end_date_time - date_time"
+			},
+			"name": "duration"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"visible": "[end_date and (time and end_time)]",
+				"prefix": "(",
+				"suffix": ")",
+				"expression": "duration(duration, 2)"
+			},
+			"name": "duration_readable"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "options",
+				"options": "Synergy, Breeze, Quest"
+			},
+			"name": "Project"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "stretch",
+				"set_pairs": [],
+				"filter_pairs": [],
+				"label": "Start work"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "last",
+				"target": "last(entry)",
+				"set_pairs": [
+					{
+						"name": "end_time",
+						"value": "time($now)"
+					}
+				],
+				"filter_pairs": [],
+				"label": "End work",
+				"appearance": "stretch"
+			}
+		}
+	],
+	"charts": []
+}
