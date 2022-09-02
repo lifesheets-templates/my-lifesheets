@@ -19,7 +19,7 @@ body {
 }
 
 button {
-	padding: .3em .5em;
+	padding: .3em .6em;
 	border: 1px solid hsl(var(--gray) 0% / .2);
 	border-radius: calc(.15em + .15rem);
 	background-color: hsl(var(--gray) 93%);
@@ -223,6 +223,10 @@ figure.chart table th {
 .appearance-stretch,
 .appearance-line {
 	flex: 1;
+}
+
+.appearance-line[data-type="expression"] {
+	text-align: center;
 }
 
 .type-options {
