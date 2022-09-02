@@ -144,7 +144,7 @@
 			"scope": "entry",
 			"settings": {
 				"type": "options",
-				"options": "Synergy, Breeze, Quest",
+				"options": "Personal, Synergy, Breeze, Quest",
 				"default": "",
 				"prefix": "Project: "
 			},
@@ -202,6 +202,22 @@
 				"set_pairs": [],
 				"filter_pairs": [],
 				"label": "Start work"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "new",
+				"target": "add(entry)",
+				"set_pairs": [
+					{
+						"name": "project",
+						"value": "Synergy"
+					}
+				],
+				"filter_pairs": [],
+				"label": "Work on Synergy"
 			}
 		},
 		{
