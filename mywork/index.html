@@ -66,6 +66,7 @@
 	<figcaption>Sum of hours_worked per project value</figcaption></figure>
 			</div>
 		<a id=entries></a>
+			<span data-type="expression" data-prefix="$" data-suffix=" total earnings" mv-value="sum(earnings)" class="appearance-line"></span>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-stretch">Start work</button>
 				<button data-type="action" mv-action="set(last(entry), end_time: time($now))" class="appearance-stretch">End work</button>
