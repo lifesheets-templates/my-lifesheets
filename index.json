@@ -8,9 +8,10 @@
 		"storageType": "",
 		"storage": "https://github.com/leaverou/my-lifesheets/mygraine/data.json",
 		"notes": true,
-		"description": "migraine tracker",
+		"description": "migraine tracker (private)",
 		"entries_name": "migraines",
-		"entry_name": "migraine"
+		"entry_name": "migraine",
+		"private": true
 	},
 	"mylife": {
 		"name": "MyLife",
