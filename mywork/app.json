@@ -177,7 +177,8 @@
 			"settings": {
 				"expression": "sum(earnings)",
 				"prefix": "$",
-				"suffix": " total earnings"
+				"suffix": " total earnings",
+				"appearance": "line"
 			}
 		},
 		{
