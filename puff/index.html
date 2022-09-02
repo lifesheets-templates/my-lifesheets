@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Puff: smoking session tracker</title>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #838377;
+			--icon: "🚬";
+		}
+	</style>
+	
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="puff" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/puff/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">🚬</span>
+			<span class="app-name">Puff</span>
+		</h1>
+		<h2>smoking tracker</h2>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="bar" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Sum of cigarettes</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart10" mv-value="groupBy(cigarettes, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Sum of cigarettes per day</figcaption></figure>
+			</div>
+		<a id=entries></a>
+			<span data-type="expression" data-prefix="Haven’t smoked for  " data-suffix="!" mv-value="duration($now - last(date_time))" class="appearance-line"></span>
+			<div class="field-row">
+				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Smoked</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<meter-discrete property="cigarettes" data-type="property" mv-default="[1]" min="1" max="10" step="1" mv-edit-as="meter" icon="🚬" class="type-number bar"></meter-discrete>
+					<span data-type="expression" mv-value="cigarettes"></span>
+				</header>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
