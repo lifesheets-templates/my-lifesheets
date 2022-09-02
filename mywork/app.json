@@ -154,7 +154,7 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "80 * hours_worked",
+				"expression": "if(project = \"Personal\", 0, 80 * hours_worked)",
 				"prefix": "$"
 			},
 			"name": "earnings"
@@ -202,22 +202,6 @@
 				"set_pairs": [],
 				"filter_pairs": [],
 				"label": "Start work"
-			}
-		},
-		{
-			"type": "action",
-			"scope": "root",
-			"settings": {
-				"target_preset": "new",
-				"target": "add(entry)",
-				"set_pairs": [
-					{
-						"name": "project",
-						"value": "Synergy"
-					}
-				],
-				"filter_pairs": [],
-				"label": "Work on Synergy"
 			}
 		},
 		{
