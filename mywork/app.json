@@ -2,7 +2,7 @@
 	"app": {
 		"name": "MyWork",
 		"slug": "mywork",
-		"entry_name": "work",
+		"entry_name": "work session",
 		"description": "work time tracker",
 		"private": false,
 		"icon": "👩🏽‍💻",
@@ -10,7 +10,7 @@
 		"storageType": "",
 		"storage": "",
 		"charts_placement": "",
-		"entries_name": "works"
+		"entries_name": "work sessions"
 	},
 	"temporal": {
 		"times": "yes",
@@ -165,7 +165,7 @@
 			"settings": {
 				"expression": "hours(end_date_time - date_time)",
 				"prefix": "",
-				"visible": "false"
+				"visible": "true"
 			},
 			"name": "hours_worked"
 		},
