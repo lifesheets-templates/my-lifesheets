@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>Puff: smoking session tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🚬</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
@@ -40,7 +41,7 @@
 					<th hc-name="b">Sum of cigarettes</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart10" mv-value="groupBy(cigarettes, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart11" mv-value="groupBy(cigarettes, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[sum($items)]</td>
@@ -53,7 +54,8 @@
 		<a id=entries></a>
 			<span data-type="expression" data-prefix="Haven’t smoked for  " data-suffix="!" mv-value="duration($now - last(date_time))" class="appearance-line"></span>
 			<div class="field-row">
-				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Smoked</button>
+				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Smoked 🚬</button>
+				<button data-type="action" mv-action="add(cigarettes: 2, entry)">➕ Smoked 🚬 🚬</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
