@@ -1,0 +1,143 @@
+{
+	"app": {
+		"name": "Puff",
+		"slug": "puff",
+		"entry_name": "smoking session",
+		"description": "smoking tracker",
+		"private": false,
+		"icon": "🚬",
+		"color": "#838377",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "smoking sessions"
+	},
+	"temporal": {
+		"times": "yes",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"number_style": "bar",
+				"max": 10,
+				"default": "[1]",
+				"bar_style": "discrete"
+			},
+			"name": "cigarettes"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "cigarettes"
+			}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "duration($now - last(date_time))",
+				"prefix": "Haven’t smoked for  ",
+				"suffix": "!",
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [],
+				"filter_pairs": [],
+				"label": "➕ Smoked"
+			}
+		}
+	],
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate_of": "cigarettes",
+				"group_by": "day",
+				"aggregate": "sum"
+			}
+		}
+	]
+}
