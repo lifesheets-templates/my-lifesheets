@@ -154,10 +154,20 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "80 * hours(end_date_time - date_time)",
+				"expression": "80 * hours_worked",
 				"prefix": "$"
 			},
 			"name": "earnings"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "hours(end_date_time - date_time)",
+				"prefix": "",
+				"visible": "false"
+			},
+			"name": "hours_worked"
 		},
 		{
 			"type": "property",
@@ -221,6 +231,16 @@
 				"aggregate": "sum",
 				"aggregate_of": "earnings",
 				"group_by": "project"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "sum",
+				"aggregate_of": "hours_worked",
+				"group_by": "project",
+				"type": "table"
 			}
 		}
 	]
