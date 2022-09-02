@@ -240,7 +240,7 @@
 				"aggregate": "sum",
 				"aggregate_of": "hours_worked",
 				"group_by": "project",
-				"type": "table"
+				"type": "pie"
 			}
 		}
 	]
