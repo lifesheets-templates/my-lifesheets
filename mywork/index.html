@@ -73,6 +73,7 @@
 			<span data-type="expression" data-prefix="$" data-suffix=" total earnings" mv-value="sum(earnings)" class="appearance-line"></span>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-stretch">Start work</button>
+				<button data-type="action" mv-action="add(project: Synergy, entry)">Work on Synergy</button>
 				<button data-type="action" mv-action="set(last(entry), end_time: time($now))" class="appearance-stretch">End work</button>
 			</div>
 		<section mv-list="entry">
@@ -87,7 +88,7 @@
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="datetime(end_date, end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
-					<span property="project" data-type="property" data-prefix="Project: " mv-options="Synergy, Breeze, Quest" class="type-options"></span>
+					<span property="project" data-type="property" data-prefix="Project: " mv-options="Personal, Synergy, Breeze, Quest" class="type-options"></span>
 					<span property="earnings" data-type="expression" data-prefix="$" mv-value="80 * hours_worked"></span>
 					<span property="hours_worked" data-type="expression" mv-value="hours(end_date_time - date_time)"></span>
 				</header>
