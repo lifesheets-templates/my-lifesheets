@@ -65,5 +65,18 @@
 		"storage": "",
 		"charts_placement": "",
 		"entries_name": "measurements"
+	},
+	"mywork": {
+		"name": "MyWork",
+		"slug": "mywork",
+		"entry_name": "work",
+		"description": "work time tracker",
+		"private": false,
+		"icon": "👩🏽‍💻",
+		"color": "#83bb1b",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "works"
 	}
 }
