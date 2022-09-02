@@ -148,7 +148,7 @@
 	"charts": [
 		{
 			"type": "chart",
-			"scope": "charts",
+			"scope": "root",
 			"settings": {
 				"aggregate_of": "cigarettes",
 				"group_by": "day",
