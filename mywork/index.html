@@ -47,6 +47,23 @@
 			</tbody>
 		</table>
 	<figcaption>Sum of earnings per project value</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+	
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Project</th>
+					<th hc-name="b">Sum of hours_worked</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart20" mv-value="sort(groupBy(hours_worked, project), '$value')">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	<figcaption>Sum of hours_worked per project value</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<span data-type="expression" data-prefix="$" data-suffix=" total earnings" mv-value="sum(earnings)" class="appearance-line"></span>
@@ -67,7 +84,8 @@
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
 					<span property="project" data-type="property" data-prefix="Project: " mv-options="Synergy, Breeze, Quest" class="type-options"></span>
-					<span property="earnings" data-type="expression" data-prefix="$" mv-value="80 * hours(end_date_time - date_time)"></span>
+					<span property="earnings" data-type="expression" data-prefix="$" mv-value="80 * hours_worked"></span>
+					<span property="hours_worked" data-type="expression" data-show="false" mv-value="hours(end_date_time - date_time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
