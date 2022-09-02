@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>Puff: smoking session tracker</title>
-	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🚬</text></svg>'>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🚬</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
@@ -41,7 +41,7 @@
 					<th hc-name="b">Sum of cigarettes</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart11" mv-value="groupBy(cigarettes, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart12" mv-value="groupBy(cigarettes, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[sum($items)]</td>
