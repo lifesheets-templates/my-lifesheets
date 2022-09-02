@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>MyWork: work tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">👩🏽‍💻</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
@@ -14,6 +15,7 @@
 		}
 	</style>
 	
+	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
@@ -39,7 +41,7 @@
 					<th hc-name="b">Sum of earnings</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart19" mv-value="sort(groupBy(earnings, project), '$value')">
+			<tbody mv-list="chart17" mv-value="sort(groupBy(earnings, project), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[sum($items)]</td>
@@ -47,8 +49,9 @@
 			</tbody>
 		</table>
 	<figcaption>Sum of earnings per project value</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
 	
+	<h-chart type="pie" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -56,13 +59,14 @@
 					<th hc-name="b">Sum of hours_worked</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart20" mv-value="sort(groupBy(hours_worked, project), '$value')">
+			<tbody mv-list="chart18" mv-value="sort(groupBy(hours_worked, project), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[sum($items)]</td>
 				</tr>
 			</tbody>
 		</table>
+	</h-chart>
 	<figcaption>Sum of hours_worked per project value</figcaption></figure>
 			</div>
 		<a id=entries></a>
