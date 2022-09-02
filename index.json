@@ -70,7 +70,7 @@
 	"mywork": {
 		"name": "MyWork",
 		"slug": "mywork",
-		"entry_name": "work",
+		"entry_name": "work session",
 		"description": "work time tracker",
 		"private": false,
 		"icon": "👩🏽‍💻",
@@ -78,7 +78,7 @@
 		"storageType": "",
 		"storage": "",
 		"charts_placement": "",
-		"entries_name": "works"
+		"entries_name": "work sessions"
 	},
 	"puff": {
 		"name": "Puff",
