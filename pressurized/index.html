@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>Pressurized: measurement tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🫀</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
@@ -14,6 +15,7 @@
 		}
 	</style>
 	
+	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
@@ -78,8 +80,8 @@
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
-					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" datetime="HH:mm" class="type-time"></time>
-					<span property="date_time" data-type="expression" data-show="false" mv-value="date & if(time, 'T' & time)"></span>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
 					<span property="systolic" data-type="property" mv-editor-type="number" mv-editor-min="1" mv-editor-max="250" mv-editor-step="1" class="type-number"></span>
 					<span property="diastolic" data-type="property" data-prefix="/ " data-suffix=" mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="200" mv-editor-step="1" class="type-number"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
@@ -93,6 +95,11 @@
 	</main>
 
 	<script src="https://get.mavo.io/mavo.js"></script>
-	
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
 </body>
 </html>
