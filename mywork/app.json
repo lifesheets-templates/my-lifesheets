@@ -182,6 +182,16 @@
 	],
 	"root": [
 		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "sum(earnings)",
+				"prefix": "$",
+				"appearance": "line",
+				"suffix": " total earnings"
+			}
+		},
+		{
 			"type": "action",
 			"scope": "root",
 			"settings": {
