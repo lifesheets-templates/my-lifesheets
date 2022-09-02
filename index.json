@@ -79,5 +79,18 @@
 		"storage": "",
 		"charts_placement": "",
 		"entries_name": "works"
+	},
+	"puff": {
+		"name": "Puff",
+		"slug": "puff",
+		"entry_name": "smoking session",
+		"description": "smoking tracker",
+		"private": false,
+		"icon": "🚬",
+		"color": "#838377",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "smoking sessions"
 	}
 }
