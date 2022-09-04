@@ -81,7 +81,7 @@
 			"settings": {
 				"number_style": "bar",
 				"max": 10,
-				"default": "[1]",
+				"default": "1",
 				"bar_style": "discrete"
 			},
 			"name": "cigarettes"
