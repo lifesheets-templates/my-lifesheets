@@ -168,7 +168,8 @@
 				"group_by": "day",
 				"aggregate": "sum",
 				"type": "bar",
-				"caption": "Cigarettes per day"
+				"caption": "Cigarettes per day",
+				"orientation": "horizontal"
 			}
 		}
 	]
