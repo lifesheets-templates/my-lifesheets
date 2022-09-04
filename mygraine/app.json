@@ -69,7 +69,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "date & if(time, 'T' & time)"
+				"expression": "datetime(date, time)"
 			},
 			"name": "date_time"
 		},
@@ -97,7 +97,7 @@
 			"settings": {
 				"type": "date",
 				"prefix": " on ",
-				"visible": "[time and end_time]",
+				"visible": "[if(time and end_time, if(end_date = date, 'edit', true), false)]",
 				"default": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
 				"min_date": "[date]"
 			},
@@ -111,7 +111,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "end_date & if(end_time, 'T' & end_time)"
+				"expression": "datetime(end_date, end_time)"
 			},
 			"name": "end_date_time"
 		},
@@ -214,7 +214,8 @@
 				"target": "add(entry)",
 				"appearance": "stretch",
 				"label": "Start migraine",
-				"set_pairs": []
+				"set_pairs": [],
+				"filter_pairs": []
 			}
 		},
 		{
@@ -230,7 +231,8 @@
 						"name": "end_time",
 						"value": "time($now)"
 					}
-				]
+				],
+				"filter_pairs": []
 			}
 		}
 	],
@@ -241,7 +243,16 @@
 			"settings": {
 				"aggregate": "count",
 				"aggregate_of": "entry",
-				"orientation": "horizontal"
+				"orientation": "horizontal",
+				"type": "bar"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate_of": "side",
+				"group_by": "side"
 			}
 		}
 	]
