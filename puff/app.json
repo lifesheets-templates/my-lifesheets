@@ -111,7 +111,21 @@
 			"settings": {
 				"expression": "duration($now - last(date_time))",
 				"prefix": "Haven’t smoked for  ",
-				"suffix": "!",
+				"suffix": "! /",
+				"appearance": ""
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "'Trying to quit for ' & duration($now - first(date_time))"
+			}
+		},
+		{
+			"type": "spacer",
+			"scope": "root",
+			"settings": {
 				"appearance": "line"
 			}
 		},
@@ -143,13 +157,6 @@
 				"filter_pairs": [],
 				"label": "➕ Smoked 🚬 🚬"
 			}
-		},
-		{
-			"type": "expression",
-			"scope": "root",
-			"settings": {
-				"expression": "'Trying to quit for ' & duration($now - first(date_time))"
-			}
 		}
 	],
 	"charts": [
@@ -159,7 +166,9 @@
 			"settings": {
 				"aggregate_of": "cigarettes",
 				"group_by": "day",
-				"aggregate": "sum"
+				"aggregate": "sum",
+				"type": "bar",
+				"caption": "Cigarettes per day"
 			}
 		}
 	]
