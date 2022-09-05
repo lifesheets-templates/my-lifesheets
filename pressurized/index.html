@@ -14,7 +14,6 @@
 			--icon: "🫀";
 		}
 	</style>
-	
 	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
@@ -42,7 +41,7 @@
 					<th hc-name="b">Average systolic</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart13" mv-value="groupBy(systolic, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart13" mv-value="groupBy(entry.systolic, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -61,7 +60,7 @@
 					<th hc-name="b">Average diastolic</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart14" mv-value="groupBy(diastolic, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart14" mv-value="groupBy(entry.diastolic, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
