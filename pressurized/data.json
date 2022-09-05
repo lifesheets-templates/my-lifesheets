@@ -31,6 +31,13 @@
 			"systolic": 141,
 			"diastolic": 84,
 			"time": "20:00"
+		},
+		{
+			"date": "2022-09-05",
+			"time": "20:00",
+			"systolic": 180,
+			"diastolic": 120,
+			"notes": "During user study"
 		}
 	]
 }
