@@ -4,8 +4,8 @@
 	"short_name": "Pressurized",
 	"start_url": "https://leaverou.lifesheets.app/pressurized",
 	"display": "standalone",
-	"background_color": "#6f923a",
-	"description": "blood pressure tracker",
+	"background_color": "#327640",
+	"description": "measurement tracker",
 	"icons": [
 		{
 			"src": "data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text style=\"font-size: 80px\" x=\"50%\" y=\".85em\" dominant-baseline=\"middle\" text-anchor=\"middle\">🫀</text></svg>",
