@@ -42,6 +42,8 @@
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="systolic" data-type="property" data-suffix=" / " mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
+					<span property="diastolic" data-type="property" data-suffix="mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
 					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
