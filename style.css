@@ -4,12 +4,14 @@
 	accent-color: var(--accent-color);
 }
 
-[data-prefix]:where(:not(:empty, .empty), [mv-mode="edit"])::before {
+[data-prefix]:where(:not(:empty, .empty), [mv-mode="edit"], [data-type="spacer"])::before {
 	content: attr(data-prefix);
+	white-space: nowrap;
 }
 
-[data-suffix]:where(:not(:empty, .empty), [mv-mode="edit"])::after {
+[data-suffix]:where(:not(:empty, .empty), [mv-mode="edit"], [data-type="spacer"])::after {
 	content: attr(data-suffix);
+	white-space: nowrap;
 }
 
 body {
@@ -87,7 +89,8 @@ main {
 	display: flex;
 	flex-flow: column;
 	gap: .5em;
-	padding: 0 1rem;
+	padding: 1rem;
+	padding-top: 0;
 }
 
 section[mv-list="entry"] {
@@ -287,3 +290,8 @@ main.charts-below > a[id="stats"],
 .mv-bar.mv-bar.mv-ui.mv-ui .mv-edit {
 		border-radius: .3em;
 	}
+
+/* Workaround for the dynamic select bug */
+select .mv-volatile {
+	display: none;
+}
