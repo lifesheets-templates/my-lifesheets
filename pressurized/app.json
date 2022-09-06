@@ -60,6 +60,26 @@
 			"name": "time"
 		},
 		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"default": "",
+				"max": 300,
+				"suffix": " / "
+			},
+			"name": "systolic"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"default": "",
+				"max": 300,
+				"suffix": "mmHg"
+			},
+			"name": "diastolic"
+		},
+		{
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
