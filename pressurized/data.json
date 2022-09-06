@@ -1,0 +1,16 @@
+{
+	"entry": [
+		{
+			"date": 1662325200000,
+			"time": "17:00",
+			"systolic": 120,
+			"diastolic": 80
+		},
+		{
+			"date": 1662325200000,
+			"time": "17:00",
+			"systolic": 190,
+			"diastolic": 100
+		}
+	]
+}
