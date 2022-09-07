@@ -26,12 +26,32 @@
 			<span class="app-name">Pressurized</span>
 		</h1>
 		<h2>measurement tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="line" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average diastolic</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart14" mv-value="groupBy(entry.diastolic, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average diastolic per day</figcaption></figure>
+			</div>
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add measurement</button>
@@ -44,6 +64,8 @@
 					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
 					<span property="systolic" data-type="property" data-suffix=" / " mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
 					<span property="diastolic" data-type="property" data-suffix="mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span data-type="expression" mv-value="if(systolic > 180 or diastolic > 120, &quot;Hypertensive Crisis&quot;)"></span>
 					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
