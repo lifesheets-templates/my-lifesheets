@@ -80,6 +80,18 @@
 			"name": "diastolic"
 		},
 		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "if(systolic > 180 or diastolic > 120, \"Hypertensive Crisis\")"
+			}
+		},
+		{
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -117,5 +129,16 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "diastolic",
+				"group_by": "day",
+				"type": "line"
+			}
+		}
+	]
 }
