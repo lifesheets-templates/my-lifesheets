@@ -19,7 +19,7 @@
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="baby" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/baby/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/baby/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">🫄🏻</span>
@@ -32,8 +32,9 @@
 	<main class="charts-first">
 		<a id=stats></a>
 			<div class="chart-row">
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
+	<h-chart id="chart14" type="bar" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -48,6 +49,9 @@
 				</tr>
 			</tbody>
 		</table>
+	</h-chart><script>chart14.formatX = $value => {
+				return ($fn.duration.call($this, $value))(lifesheet);
+			};</script>
 	<figcaption>Average length per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
