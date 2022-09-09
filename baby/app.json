@@ -215,7 +215,8 @@
 			"settings": {
 				"aggregate": "average",
 				"aggregate_of": "length",
-				"type": "bar"
+				"type": "bar",
+				"number_format": "duration($result, 'days')"
 			}
 		}
 	]
