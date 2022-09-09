@@ -216,7 +216,21 @@
 				"aggregate": "average",
 				"aggregate_of": "length",
 				"type": "bar",
-				"number_format": "duration($result, 'days')"
+				"number_format": "duration($result, 'days')",
+				"orientation": "horizontal",
+				"min_width": 600
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"number_format": "duration($result, \"days\")",
+				"aggregate": "average",
+				"aggregate_of": "duration_ov",
+				"type": "bar",
+				"orientation": "horizontal",
+				"min_width": 600
 			}
 		}
 	]
