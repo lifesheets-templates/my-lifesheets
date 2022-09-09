@@ -49,9 +49,17 @@
 				</tr>
 			</tbody>
 		</table>
-	</h-chart><script>chart14.formatX = $value => {
-				return ($fn.duration.call($this, $value))(lifesheet);
-			};</script>
+	</h-chart><script>chart14.xFormat = $result => {
+					try {
+						let $fn = Mavo.Script.$fn;
+						let $this = Mavo.all[0].root.getLiveData();
+						return ($fn.duration.call($this, $result, 'days'));
+					}
+					catch (e) {
+						console.warn(e);
+						return $result;
+					}
+				};</script>
 	<figcaption>Average length per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
