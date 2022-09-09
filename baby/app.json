@@ -1,0 +1,221 @@
+{
+	"app": {
+		"name": "Baby?",
+		"slug": "baby",
+		"entry_name": "period",
+		"entries_name": "periods",
+		"description": "period tracker",
+		"private": false,
+		"icon": "🫄🏻",
+		"color": "#5ea419",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
+	},
+	"temporal": {
+		"times": "",
+		"ranges": "yes"
+	},
+	"entry": [
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				],
+				"prefix": "Start ",
+				"text_color": "#de3e2d",
+				"appearance": "stretch",
+				"min_date": "[$previous.end_date + 1 * day()]"
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[date(date + 14 * day())]",
+				"formatting": [
+					"b"
+				],
+				"prefix": "Peak ",
+				"text_color": "#0008ff",
+				"visible": "true",
+				"appearance": "stretch"
+			},
+			"name": "peak_date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"prefix": " End ",
+				"visible": "true",
+				"default": "[date(date + 28 * day())]",
+				"min_date": "[date]",
+				"formatting": [
+					"b"
+				],
+				"appearance": "stretch"
+			},
+			"name": "end_date"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "end_date - date"
+			},
+			"name": "length"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "peak_date - date",
+				"prefix": "",
+				"suffix": ""
+			},
+			"name": "duration_ov"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "end_date - peak_date"
+			},
+			"name": "duration_lut"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"visible": "true",
+				"prefix": " Length (",
+				"suffix": ") ",
+				"expression": "duration(length, 'days')",
+				"formatting": [
+					"b"
+				],
+				"text_color": "#a84d43",
+				"appearance": "stretch"
+			},
+			"name": "duration_readable"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"visible": "true",
+				"prefix": " Ovulation (",
+				"suffix": ")",
+				"expression": "duration(duration_ov,'days')",
+				"formatting": [
+					"b"
+				],
+				"text_color": "#a5afdf",
+				"appearance": "stretch"
+			},
+			"name": "duration_readable2"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"visible": "true",
+				"prefix": "Luteal phase (",
+				"suffix": ")",
+				"expression": " duration(duration_lut, 'days')"
+			},
+			"name": "duration_readable3"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "true",
+				"label": "➕ Add period",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [],
+				"filter_pairs": []
+			}
+		}
+	],
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "duration"
+			}
+		}
+	]
+}
