@@ -214,7 +214,7 @@
 			"scope": "charts",
 			"settings": {
 				"aggregate": "average",
-				"aggregate_of": "duration"
+				"aggregate_of": "length"
 			}
 		}
 	]
