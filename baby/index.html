@@ -38,17 +38,17 @@
 			<thead>
 				<tr>
 					<th hc-name="a">Month</th>
-					<th hc-name="b">Average duration</th>
+					<th hc-name="b">Average length</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart15" mv-value="groupBy(entry.duration, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart14" mv-value="groupBy(map(entry, 'length'), readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
 				</tr>
 			</tbody>
 		</table>
-	<figcaption>Average duration per month</figcaption></figure>
+	<figcaption>Average length per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
