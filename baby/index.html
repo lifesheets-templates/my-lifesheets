@@ -32,9 +32,9 @@
 	<main class="charts-first">
 		<a id=stats></a>
 			<div class="chart-row">
-				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(600px, 100vw)">
 	
-	<h-chart id="chart14" type="bar" x="b">
+	<h-chart id="chart14" type="bar" x="a">
 		<table>
 			<thead>
 				<tr>
@@ -49,18 +49,47 @@
 				</tr>
 			</tbody>
 		</table>
-	</h-chart><script>chart14.xFormat = $result => {
-					try {
-						let $fn = Mavo.Script.$fn;
-						let $this = Mavo.all[0].root.getLiveData();
-						return ($fn.duration.call($this, $result, 'days'));
-					}
-					catch (e) {
-						console.warn(e);
-						return $result;
-					}
-				};</script>
+	</h-chart><script>chart14.yFormat = $result => {
+						//try {
+							let $fn = Mavo.Script.$fn;
+							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
+							return ($fn.duration.call($this, $result, 'days'));
+						// }
+						// catch (e) {
+						// 	console.warn(e);
+						// 	return $result;
+						// }
+					};</script>
 	<figcaption>Average length per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(600px, 100vw)">
+	
+	<h-chart id="chart16" type="bar" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Average duration_ov</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart16" mv-value="groupBy(entry.duration_ov, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart><script>chart16.yFormat = $result => {
+						//try {
+							let $fn = Mavo.Script.$fn;
+							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
+							return ($fn.duration.call($this, $result, "days"));
+						// }
+						// catch (e) {
+						// 	console.warn(e);
+						// 	return $result;
+						// }
+					};</script>
+	<figcaption>Average duration_ov per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
