@@ -214,7 +214,8 @@
 			"scope": "charts",
 			"settings": {
 				"aggregate": "average",
-				"aggregate_of": "length"
+				"aggregate_of": "length",
+				"type": "bar"
 			}
 		}
 	]
