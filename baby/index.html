@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Baby?: period tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🫄🏻</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #5ea419;
+			--icon: "🫄🏻";
+		}
+		
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="baby" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/baby/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">🫄🏻</span>
+			<span class="app-name">Baby?</span>
+		</h1>
+		<h2>period tracker</h2>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+	
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Average duration</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart15" mv-value="groupBy(entry.duration, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	<figcaption>Average duration per month</figcaption></figure>
+			</div>
+		<a id=entries></a>
+			<div class="field-row">
+				<button data-type="action" mv-action="add(entry)">➕ Add period</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<time property="date" data-type="property" data-prefix="Start " mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[$previous.end_date + 1 * day()]" class="appearance-stretch bold type-date" style="color: #de3e2d"></time>
+					<time property="peak_date" data-type="property" data-prefix="Peak " mv-default="[date(date + 14 * day())]" mv-edit-type="inline" mv-editor-type="date" class="appearance-stretch bold type-date" style="color: #0008ff"></time>
+					<time property="end_date" data-type="property" data-prefix=" End " mv-default="[date(date + 28 * day())]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="appearance-stretch bold type-date"></time>
+				</header>
+				<span data-type="spacer" class="appearance-line"></span>
+				<div class="field-row">
+					<span property="length" data-type="expression" data-show="false" mv-value="end_date - date"></span>
+					<span property="duration_ov" data-type="expression" data-show="false" mv-value="peak_date - date"></span>
+					<span property="duration_lut" data-type="expression" data-show="false" mv-value="end_date - peak_date"></span>
+				</div>
+				<span data-type="spacer" class="appearance-line"></span>
+				<div class="field-row">
+					<span property="duration_readable" data-type="expression" data-prefix=" Length (" data-suffix=") " mv-value="duration(length, 'days')" class="appearance-stretch bold" style="color: #a84d43"></span>
+					<span property="duration_readable2" data-type="expression" data-prefix=" Ovulation (" data-suffix=")" mv-value="duration(duration_ov,'days')" class="appearance-stretch bold" style="color: #a5afdf"></span>
+					<span property="duration_readable3" data-type="expression" data-prefix="Luteal phase (" data-suffix=")" mv-value=" duration(duration_lut, 'days')"></span>
+				</div>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
