@@ -46,6 +46,11 @@
 			"name": "date"
 		},
 		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
 			"type": "spacer",
 			"scope": "entry",
 			"settings": {
@@ -106,6 +111,17 @@
 		}
 	],
 	"root": [
+		{
+			"type": "property",
+			"scope": "root",
+			"settings": {
+				"type": "date",
+				"appearance": "line",
+				"prefix": "Child’s birthday: ",
+				"default": "2019-07-12"
+			},
+			"name": "birthday"
+		},
 		{
 			"type": "action",
 			"scope": "root",
