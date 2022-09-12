@@ -88,7 +88,8 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "count(greek_word)"
+				"expression": "count(greek_word)",
+				"suffix": " Greek words"
 			}
 		},
 		{
