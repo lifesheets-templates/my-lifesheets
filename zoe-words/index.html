@@ -42,10 +42,17 @@
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 				</header>
-				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
+					<span data-type="expression" data-suffix=" English words" mv-value="count(english_word)"></span>
 					<span property="english_word" data-type="property" data-prefix="🇬🇧 " mv-multiple="" class="type-text"></span>
 				</div>
+				<span data-type="spacer" class="appearance-line"></span>
+				<div class="field-row">
+					<span data-type="expression" mv-value="count(greek_word)"></span>
+					<span property="greek_word" data-type="property" data-prefix="🇬🇷 " mv-multiple="" class="type-text"></span>
+				</div>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
 		</section>
 	</main>
