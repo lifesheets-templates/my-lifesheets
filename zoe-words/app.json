@@ -48,7 +48,9 @@
 		{
 			"type": "expression",
 			"scope": "entry",
-			"settings": {}
+			"settings": {
+				"expression": "duration($today - date)"
+			}
 		},
 		{
 			"type": "spacer",
@@ -98,16 +100,6 @@
 				"allow_multiple": "yes"
 			},
 			"name": "greek_word"
-		},
-		{
-			"type": "property",
-			"scope": "entry",
-			"settings": {
-				"type": "text",
-				"appearance": "line",
-				"multiline": true
-			},
-			"name": "notes"
 		}
 	],
 	"root": [
