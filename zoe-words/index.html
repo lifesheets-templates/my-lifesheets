@@ -33,6 +33,7 @@
 		<a id=stats></a>
 			
 		<a id=entries></a>
+			<time property="birthday" data-type="property" data-prefix="Child’s birthday: " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="appearance-line type-date"></time>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add word set</button>
 			</div>
@@ -41,6 +42,7 @@
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<span data-type="expression" mv-value=""></span>
 				</header>
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
