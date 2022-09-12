@@ -233,12 +233,12 @@ figure.chart table th {
 }
 
 .type-options {
-	padding: .4em .7em;
+	padding: .3em .7em;
 	border-radius: 2em;
 	background: var(--color, hsl(var(--gray) 50% / .2));
 	font-size: smaller;
 	font-weight: bold;
-	line-height: 1;
+	line-height: 1.3;
 }
 
 [property]:where(img, video) {
