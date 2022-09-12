@@ -81,5 +81,19 @@
 		"storage": "",
 		"charts_placement": "",
 		"entries_name": "smoking sessions"
+	},
+	"zoe-words": {
+		"name": "Zoe words",
+		"slug": "zoe-words",
+		"entry_name": "word set",
+		"entries_name": "word sets",
+		"description": "learning to speak tracker",
+		"private": false,
+		"icon": "👶🏼",
+		"color": "#c34b85",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
