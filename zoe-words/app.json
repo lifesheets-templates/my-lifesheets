@@ -46,14 +46,19 @@
 			"name": "date"
 		},
 		{
-			"type": "property",
+			"type": "spacer",
 			"scope": "entry",
 			"settings": {
-				"type": "text",
-				"appearance": "line",
-				"multiline": true
-			},
-			"name": "notes"
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "count(english_word)",
+				"suffix": " English words"
+			}
 		},
 		{
 			"type": "property",
@@ -64,6 +69,40 @@
 				"prefix": "🇬🇧 "
 			},
 			"name": "english_word"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "count(greek_word)"
+			}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"prefix": "🇬🇷 ",
+				"type": "text",
+				"allow_multiple": "yes"
+			},
+			"name": "greek_word"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
 		}
 	],
 	"root": [
