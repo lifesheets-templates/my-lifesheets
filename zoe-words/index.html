@@ -70,23 +70,25 @@
 		</table>
 	</h-chart>
 	<figcaption>Sum of total_greek_word_count per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(500px, 100vw)">
 	
+	<h-chart id="chart23" type="line" x="a">
 		<table>
 			<thead>
 				<tr>
 					<th hc-name="a">Month</th>
-					<th hc-name="b">Number of word sets</th>
+					<th hc-name="b">Average english_percentage</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart23" mv-value="groupBy(entry.entry, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart23" mv-value="groupBy(entry.english_percentage, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
-					<td>[count($items)]</td>
+					<td>[average($items)]</td>
 				</tr>
 			</tbody>
 		</table>
-	<figcaption>Number of word sets per month</figcaption></figure>
+	</h-chart>
+	<figcaption>Average english_percentage per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<time property="birthday" data-type="property" data-prefix="Child’s birthday: " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="appearance-line type-date"></time>
