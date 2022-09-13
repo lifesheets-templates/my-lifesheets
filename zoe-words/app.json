@@ -65,7 +65,8 @@
 				"prefix": " • ",
 				"expression": "total_english_word_count + total_greek_word_count",
 				"suffix": " total words"
-			}
+			},
+			"name": "total_words"
 		},
 		{
 			"type": "spacer",
