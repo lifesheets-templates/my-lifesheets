@@ -38,7 +38,7 @@
 			],
 			"settings": {
 				"type": "date",
-				"default": "[$today]",
+				"default": "[date($previous.date + 1 * day())]",
 				"formatting": [
 					"b"
 				]
