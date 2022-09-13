@@ -50,13 +50,14 @@
 					<span property="english_word" data-type="property" data-prefix="🇬🇧 " mv-multiple="" mv-initial-items="0" data-list-separator=", " class="type-text"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="english_word_count" data-type="expression" data-suffix=" new English words" mv-value="count(english_word)"></span>
-					<span property="total_english_word_count" data-type="expression" mv-value=""></span>
+					<span property="total_english_word_count" data-type="expression" data-prefix=" • " data-suffix=" total" mv-value="$previous.total_english_word_count + english_word_count"></span>
 				</div>
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
 					<span property="greek_word" data-type="property" data-prefix="🇬🇷 " mv-multiple="" mv-initial-items="0" data-list-separator=", " class="type-text"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="greek_word_count" data-type="expression" data-suffix=" new Greek words" mv-value="count(greek_word)"></span>
+					<span property="total_greek_word_count" data-type="expression" data-prefix=" • " data-suffix=" total" mv-value="$previous.total_greek_word_count + greek_word_count"></span>
 				</div>
 			</article>
 		</section>
