@@ -26,12 +26,51 @@
 			<span class="app-name">Zoe words</span>
 		</h1>
 		<h2>learning to speak tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart19" type="line" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Sum of total_english_word_count</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart19" mv-value="groupBy(entry.total_english_word_count, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Sum of total_english_word_count per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart20" type="line" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Sum of total_greek_word_count</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart20" mv-value="groupBy(entry.total_greek_word_count, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Sum of total_greek_word_count per month</figcaption></figure>
+			</div>
 		<a id=entries></a>
 			<time property="birthday" data-type="property" data-prefix="Child’s birthday: " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="appearance-line type-date"></time>
 			<div class="field-row">
@@ -44,6 +83,7 @@
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span data-type="expression" data-suffix=" old" mv-value="duration($today - date, 'months')"></span>
+					<span data-type="expression" data-prefix=" • " data-suffix=" total words" mv-value="total_english_word_count + total_greek_word_count"></span>
 				</header>
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
