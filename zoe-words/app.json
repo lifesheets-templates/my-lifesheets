@@ -4,7 +4,7 @@
 		"slug": "zoe-words",
 		"entry_name": "word set",
 		"entries_name": "word sets",
-		"description": "learning to speak tracker",
+		"description": "learning to speak",
 		"private": false,
 		"icon": "👶🏼",
 		"color": "#c34b85",
@@ -64,9 +64,28 @@
 			"settings": {
 				"prefix": " • ",
 				"expression": "total_english_word_count + total_greek_word_count",
-				"suffix": " total words"
+				"suffix": " total words,"
 			},
-			"name": "total_words"
+			"name": "total_word_count"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "english_word_count + greek_word_count",
+				"suffix": " new"
+			},
+			"name": "total_new"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"prefix": " 🇬🇧 ",
+				"expression": "100 * (total_english_word_count / total_word_count)",
+				"suffix": "%"
+			},
+			"name": "english_percentage"
 		},
 		{
 			"type": "spacer",
@@ -198,6 +217,11 @@
 				"aggregate": "sum",
 				"aggregate_of": "total_greek_word_count"
 			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {}
 		}
 	]
 }
