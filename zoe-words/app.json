@@ -54,7 +54,7 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "duration($today - date, 'months')",
+				"expression": "duration(date - birthday, 'months')",
 				"suffix": " old"
 			}
 		},
