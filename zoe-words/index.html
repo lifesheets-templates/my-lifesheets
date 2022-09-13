@@ -25,7 +25,7 @@
 			<span class="app-icon">👶🏼</span>
 			<span class="app-name">Zoe words</span>
 		</h1>
-		<h2>learning to speak tracker</h2>
+		<h2>learning to speak</h2>
 		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
@@ -70,6 +70,23 @@
 		</table>
 	</h-chart>
 	<figcaption>Sum of total_greek_word_count per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+	
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Number of word sets</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart23" mv-value="groupBy(entry.entry, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[count($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	<figcaption>Number of word sets per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<time property="birthday" data-type="property" data-prefix="Child’s birthday: " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="appearance-line type-date"></time>
@@ -83,7 +100,9 @@
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span data-type="expression" data-suffix=" old" mv-value="duration(date - birthday, 'months')"></span>
-					<span property="total_words" data-type="expression" data-prefix=" • " data-suffix=" total words" mv-value="total_english_word_count + total_greek_word_count"></span>
+					<span property="total_word_count" data-type="expression" data-prefix=" • " data-suffix=" total words," mv-value="total_english_word_count + total_greek_word_count"></span>
+					<span property="total_new" data-type="expression" data-suffix=" new" mv-value="english_word_count + greek_word_count"></span>
+					<span property="english_percentage" data-type="expression" data-prefix=" 🇬🇧 " data-suffix="%" mv-value="100 * (total_english_word_count / total_word_count)"></span>
 				</header>
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
