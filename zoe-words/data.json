@@ -31,11 +31,19 @@
 			]
 		},
 		{
-			"date": "2022-09-13",
+			"date": "2021-01-20",
 			"english_word": [],
 			"greek_word": [
 				"Αγκαντού (from song)"
 			]
+		},
+		{
+			"date": "2021-01-23",
+			"english_word": [
+				"Yay",
+				"No"
+			],
+			"greek_word": []
 		}
 	]
 }
