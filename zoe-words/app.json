@@ -59,6 +59,15 @@
 			}
 		},
 		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"prefix": " • ",
+				"expression": "total_english_word_count + total_greek_word_count",
+				"suffix": " total words"
+			}
+		},
+		{
 			"type": "spacer",
 			"scope": "entry",
 			"settings": {
@@ -169,5 +178,25 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate_of": "total_english_word_count",
+				"aggregate": "sum",
+				"group_by": "month"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "sum",
+				"aggregate_of": "total_greek_word_count"
+			}
+		}
+	]
 }
