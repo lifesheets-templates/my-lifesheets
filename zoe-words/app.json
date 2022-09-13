@@ -221,7 +221,12 @@
 		{
 			"type": "chart",
 			"scope": "charts",
-			"settings": {}
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "english_percentage",
+				"min_width": 500
+			}
 		}
 	]
 }
