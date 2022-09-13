@@ -46,10 +46,16 @@
 			"name": "date"
 		},
 		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "duration($today - date)"
+				"expression": "duration($today - date, 'months')",
+				"suffix": " old"
 			}
 		},
 		{
@@ -57,14 +63,6 @@
 			"scope": "entry",
 			"settings": {
 				"appearance": "line"
-			}
-		},
-		{
-			"type": "expression",
-			"scope": "entry",
-			"settings": {
-				"expression": "count(english_word)",
-				"suffix": " English words"
 			}
 		},
 		{
@@ -81,16 +79,28 @@
 		{
 			"type": "spacer",
 			"scope": "entry",
-			"settings": {
-				"appearance": "line"
-			}
+			"settings": {}
 		},
 		{
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "count(greek_word)",
-				"suffix": " Greek words"
+				"expression": "count(english_word)",
+				"suffix": " new English words"
+			},
+			"name": "english_word_count"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {},
+			"name": "total_english_word_count"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
 			}
 		},
 		{
@@ -103,6 +113,20 @@
 				"initial_items": "0"
 			},
 			"name": "greek_word"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "count(greek_word)",
+				"suffix": " new Greek words"
+			},
+			"name": "greek_word_count"
 		}
 	],
 	"root": [
