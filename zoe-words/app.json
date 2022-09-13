@@ -73,7 +73,8 @@
 			"settings": {
 				"type": "text",
 				"allow_multiple": "yes",
-				"prefix": "🇬🇧 "
+				"prefix": "🇬🇧 ",
+				"initial_items": "0"
 			},
 			"name": "english_word"
 		},
