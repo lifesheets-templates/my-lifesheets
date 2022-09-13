@@ -99,7 +99,8 @@
 			"settings": {
 				"prefix": "🇬🇷 ",
 				"type": "text",
-				"allow_multiple": "yes"
+				"allow_multiple": "yes",
+				"initial_items": "0"
 			},
 			"name": "greek_word"
 		}
