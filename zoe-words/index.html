@@ -83,7 +83,7 @@
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span data-type="expression" data-suffix=" old" mv-value="duration($today - date, 'months')"></span>
-					<span data-type="expression" data-prefix=" • " data-suffix=" total words" mv-value="total_english_word_count + total_greek_word_count"></span>
+					<span property="total_words" data-type="expression" data-prefix=" • " data-suffix=" total words" mv-value="total_english_word_count + total_greek_word_count"></span>
 				</header>
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
