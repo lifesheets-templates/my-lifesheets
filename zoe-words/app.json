@@ -93,7 +93,11 @@
 		{
 			"type": "expression",
 			"scope": "entry",
-			"settings": {},
+			"settings": {
+				"expression": "$previous.total_english_word_count + english_word_count",
+				"prefix": " • ",
+				"suffix": " total"
+			},
 			"name": "total_english_word_count"
 		},
 		{
@@ -127,6 +131,16 @@
 				"suffix": " new Greek words"
 			},
 			"name": "greek_word_count"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "$previous.total_greek_word_count + greek_word_count",
+				"suffix": " total",
+				"prefix": " • "
+			},
+			"name": "total_greek_word_count"
 		}
 	],
 	"root": [
