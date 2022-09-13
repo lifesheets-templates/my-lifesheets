@@ -295,3 +295,7 @@ main.charts-below > a[id="stats"],
 select .mv-volatile {
 	display: none;
 }
+
+[data-type="property"][mv-multiple][data-list-separator]:has(+ [mv-multiple])::after {
+		content: attr(data-list-separator);
+	}
