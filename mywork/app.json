@@ -159,7 +159,7 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "if(project = \"Personal\", 0, 80 * hours_worked)",
+				"expression": "if(project = \"Personal\", 0, 50 * hours_worked)",
 				"prefix": "$",
 				"formatting": [
 					"b"
