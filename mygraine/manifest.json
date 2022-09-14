@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
 	"name": "mygraine",
 	"short_name": "mygraine",
-	"start_url": "https://leaverou.lifesheets.app/mygraine",
+	"start_url": "https://lifesheets-templates.lifesheets.app/mygraine",
 	"display": "standalone",
 	"background_color": "#cc0044",
 	"description": "migraine tracker",
