@@ -18,7 +18,7 @@
 		"slug": "childcare",
 		"entryName": "entry",
 		"description": "childcare calculator",
-		"private": true,
+		"private": false,
 		"icon": "👶🏼",
 		"color": "#8a6682",
 		"storageType": "",
