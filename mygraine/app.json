@@ -136,6 +136,11 @@
 			"name": "duration_readable"
 		},
 		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
@@ -158,11 +163,6 @@
 				"options": "left, right, both"
 			},
 			"name": "side"
-		},
-		{
-			"type": "spacer",
-			"scope": "entry",
-			"settings": {}
 		},
 		{
 			"type": "expression",
