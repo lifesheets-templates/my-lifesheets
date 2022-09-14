@@ -1,0 +1,141 @@
+{
+	"app": {
+		"name": "iGrow",
+		"slug": "igrow",
+		"entry_name": "measurement",
+		"entries_name": "measurements",
+		"description": "child growth tracker",
+		"private": false,
+		"icon": "🐣",
+		"color": "#b36800",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
+	},
+	"temporal": {
+		"times": "",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "kg",
+				"prefix": "Weight: "
+			},
+			"name": "weight"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"prefix": "Height: "
+			},
+			"name": "height"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"prefix": "Head circumference: "
+			},
+			"name": "head_circumference"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"label": "➕ Add measurement",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [],
+				"filter_pairs": []
+			}
+		}
+	],
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "weight",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "height",
+				"type": "line",
+				"smooth": true,
+				"number_format": "$result & \"cm\""
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "head_circumference",
+				"caption": "Average head circumference per month",
+				"number_format": "$result & \"cm\"",
+				"type": "line",
+				"smooth": true
+			}
+		}
+	]
+}
