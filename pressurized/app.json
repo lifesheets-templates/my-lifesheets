@@ -4,13 +4,12 @@
 		"slug": "pressurized",
 		"entry_name": "measurement",
 		"entries_name": "measurements",
-		"description": "measurement tracker",
+		"description": "blood pressure tracker",
 		"private": false,
 		"icon": "🫀",
-		"color": "#327640",
-		"storage_type": "",
+		"color": "#6f923a",
+		"storageType": "",
 		"storage": "",
-		"custom_css": "",
 		"charts_placement": ""
 	},
 	"temporal": {
@@ -60,12 +59,23 @@
 			"name": "time"
 		},
 		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
 				"default": "",
-				"max": 300,
-				"suffix": " / "
+				"max": 250
 			},
 			"name": "systolic"
 		},
@@ -73,9 +83,10 @@
 			"type": "property",
 			"scope": "entry",
 			"settings": {
+				"prefix": "/ ",
+				"suffix": " mmHg",
 				"default": "",
-				"max": 300,
-				"suffix": "mmHg"
+				"max": 200
 			},
 			"name": "diastolic"
 		},
@@ -88,20 +99,34 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "if(systolic > 180 or diastolic > 120, \"Hypertensive Crisis\")"
+				"expression": "if((130 < systolic or 80 < diastolic) and systolic < 140 and diastolic < 90, 'Hypertension Stage 1')",
+				"text_color": "#e69100",
+				"formatting": [
+					"b"
+				]
 			}
 		},
 		{
 			"type": "expression",
 			"scope": "entry",
-			"flags": [
-				"temporal"
-			],
 			"settings": {
-				"visible": "false",
-				"expression": "datetime(date, time)"
-			},
-			"name": "date_time"
+				"expression": "if((140 <= systolic or 90 <= diastolic) and systolic < 180 and diastolic < 120, 'Hypertension Stage 2')",
+				"text_color": "#e65d19",
+				"formatting": [
+					"b"
+				]
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "if(systolic >= 180 or diastolic >= 120, 'Hypertensive Crisis')",
+				"text_color": "#cc0000",
+				"formatting": [
+					"b"
+				]
+			}
 		},
 		{
 			"type": "property",
@@ -119,11 +144,10 @@
 			"type": "action",
 			"scope": "root",
 			"settings": {
-				"visible": "edit",
-				"label": "➕ Add measurement",
+				"label": "Add measurement",
 				"target": "add(entry)",
 				"target_preset": "new",
-				"appearance": "",
+				"appearance": "stretch",
 				"set_pairs": [],
 				"filter_pairs": []
 			}
@@ -132,12 +156,27 @@
 	"charts": [
 		{
 			"type": "chart",
-			"scope": "charts",
+			"scope": "root",
+			"settings": {
+				"group_by": "day",
+				"aggregate": "average",
+				"type": "line",
+				"aggregate_of": "systolic",
+				"orientation": "horizontal",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "root",
 			"settings": {
 				"aggregate": "average",
 				"aggregate_of": "diastolic",
 				"group_by": "day",
-				"type": "line"
+				"type": "line",
+				"orientation": "horizontal",
+				"area": false,
+				"smooth": true
 			}
 		}
 	]
