@@ -172,6 +172,16 @@
 				"visible": "false",
 				"suffix": " since last migraine"
 			}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"multiline": true,
+				"appearance": "line"
+			},
+			"name": "notes"
 		}
 	],
 	"root": [
