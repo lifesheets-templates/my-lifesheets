@@ -96,7 +96,7 @@
 					<meter-discrete property="intensity" data-type="property" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-number bar"></meter-discrete>
 					<span property="side" data-type="property" mv-options="left, right, both" class="type-options"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
-					<span data-type="expression" data-suffix=" since last migraine" data-show="[process_visible(end_time and $previous.end_time)]" mv-value="duration(end_date_time - $previous.end_date_time, 2)"></span>
+					<span data-type="expression" data-suffix=" since last migraine" data-show="false" mv-value="duration(end_date_time - $previous.end_date_time, 2)"></span>
 				</header>
 			</article>
 		</section>
