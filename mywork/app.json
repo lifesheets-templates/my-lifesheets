@@ -18,6 +18,17 @@
 	},
 	"entry": [
 		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "options",
+				"options": "Personal, Synergy, Breeze, Quest",
+				"default": "",
+				"prefix": "Project: "
+			},
+			"name": "project"
+		},
+		{
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -125,6 +136,11 @@
 			"name": "duration"
 		},
 		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
 			"type": "expression",
 			"scope": "entry",
 			"flags": [
@@ -133,29 +149,21 @@
 			],
 			"settings": {
 				"visible": "[end_date and (time and end_time)]",
-				"prefix": "(",
-				"suffix": ")",
+				"prefix": "",
+				"suffix": " =",
 				"expression": "duration(duration, 2)"
 			},
 			"name": "duration_readable"
-		},
-		{
-			"type": "property",
-			"scope": "entry",
-			"settings": {
-				"type": "options",
-				"options": "Personal, Synergy, Breeze, Quest",
-				"default": "",
-				"prefix": "Project: "
-			},
-			"name": "project"
 		},
 		{
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
 				"expression": "if(project = \"Personal\", 0, 80 * hours_worked)",
-				"prefix": "$"
+				"prefix": "$",
+				"formatting": [
+					"b"
+				]
 			},
 			"name": "earnings"
 		},
@@ -165,7 +173,7 @@
 			"settings": {
 				"expression": "hours(end_date_time - date_time)",
 				"prefix": "",
-				"visible": "true"
+				"visible": "false"
 			},
 			"name": "hours_worked"
 		},
@@ -230,7 +238,9 @@
 				"type": "table",
 				"aggregate": "sum",
 				"aggregate_of": "earnings",
-				"group_by": "project"
+				"group_by": "project",
+				"number_format": "'$' & $result",
+				"caption": "Earnings per project"
 			}
 		},
 		{
@@ -240,7 +250,8 @@
 				"aggregate": "sum",
 				"aggregate_of": "hours_worked",
 				"group_by": "project",
-				"type": "pie"
+				"type": "pie",
+				"caption": "Hours worked per project"
 			}
 		}
 	]
