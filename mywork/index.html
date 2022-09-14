@@ -89,7 +89,7 @@
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="duration_readable" data-type="expression" data-suffix=" =" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
-					<span property="earnings" data-type="expression" data-prefix="$" mv-value="if(project = &quot;Personal&quot;, 0, 80 * hours_worked)" class="bold"></span>
+					<span property="earnings" data-type="expression" data-prefix="$" mv-value="if(project = &quot;Personal&quot;, 0, 50 * hours_worked)" class="bold"></span>
 					<span property="hours_worked" data-type="expression" data-show="false" mv-value="hours(end_date_time - date_time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
