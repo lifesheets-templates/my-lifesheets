@@ -157,21 +157,24 @@
 			"name": "duration_readable"
 		},
 		{
-			"type": "spacer",
-			"scope": "entry",
-			"settings": {}
-		},
-		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
 				"max": 1000,
 				"default": "0",
 				"prefix": "[currency]",
-				"visible": "[type = \"Payment\"]",
-				"visible_custom": "type='Payment'"
+				"visible": "[type != \"Care\"]",
+				"visible_custom": "type='Payment'",
+				"formatting": [
+					"b"
+				]
 			},
 			"name": "payment_amount"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
 		},
 		{
 			"type": "expression",
