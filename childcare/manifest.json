@@ -2,9 +2,9 @@
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
 	"name": "Childcare",
 	"short_name": "Childcare",
-	"start_url": "https://leaverou.lifesheets.app/childcare",
+	"start_url": "https://lifesheets-templates.lifesheets.app/childcare",
 	"display": "standalone",
-	"background_color": "#8a6682",
+	"background_color": "#d327a5",
 	"description": "childcare calculator",
 	"icons": [
 		{
