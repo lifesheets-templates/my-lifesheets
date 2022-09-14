@@ -111,7 +111,7 @@
 			"settings": {
 				"type": "date",
 				"prefix": " on ",
-				"visible": "[if(time and end_time, if(end_date = date, 'edit', true), false)]",
+				"visible": "[if(type = 'Care' and time and end_time, if(end_date = date, 'edit', true), false)]",
 				"default": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
 				"min_date": "[date]"
 			},
@@ -149,7 +149,7 @@
 				"deletable"
 			],
 			"settings": {
-				"visible": "[end_date and (time and end_time)]",
+				"visible": "[type = 'Care' and end_date and (time and end_time)]",
 				"prefix": "(",
 				"suffix": ")",
 				"expression": "duration(duration, 2)"
@@ -167,7 +167,7 @@
 			"settings": {
 				"max": 1000,
 				"default": "0",
-				"prefix": "€",
+				"prefix": "[currency]",
 				"visible": "[type = \"Payment\"]",
 				"visible_custom": "type='Payment'"
 			},
@@ -191,7 +191,8 @@
 				"expression": "sum($all.$previous.balance) + balance",
 				"prefix": "[\"(\" & currency]",
 				"suffix": ")"
-			}
+			},
+			"name": "cumulative_balance"
 		}
 	],
 	"root": [
@@ -261,6 +262,17 @@
 					}
 				],
 				"filter_pairs": []
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "first",
+				"target": "first(entry)",
+				"set_pairs": [],
+				"filter_pairs": [],
+				"label": "Consolidate"
 			}
 		}
 	],
