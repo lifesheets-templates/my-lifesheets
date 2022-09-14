@@ -34,7 +34,7 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
-	<h-chart id="chart19" type="bar" x="a">
+	<h-chart id="chart20" type="bar" x="a">
 		<table>
 			<thead>
 				<tr>
@@ -42,7 +42,7 @@
 					<th hc-name="b">Average intensity</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart19" mv-value="groupBy(entry.intensity, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart20" mv-value="groupBy(entry.intensity, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -53,7 +53,7 @@
 	<figcaption>Average intensity per month</figcaption></figure>
 				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
 	
-	<h-chart id="chart20" type="pie" x="b">
+	<h-chart id="chart21" type="pie" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -61,7 +61,7 @@
 					<th hc-name="b">Number of migraines</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart20" mv-value="sort(groupBy(entry.entry, entry.side), '$value')">
+			<tbody mv-list="chart21" mv-value="sort(groupBy(entry.entry, entry.side), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[count($items)]</td>
@@ -93,9 +93,9 @@
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="datetime(end_date, end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
 					<meter-discrete property="intensity" data-type="property" min="1" max="5" step="1" mv-edit-as="meter" icon="🤕" class="type-number bar"></meter-discrete>
 					<span property="side" data-type="property" mv-options="left, right, both" class="type-options"></span>
-					<span data-type="spacer" class="appearance-stretch"></span>
 					<span data-type="expression" data-suffix=" since last migraine" data-show="false" mv-value="duration(end_date_time - $previous.end_date_time, 2)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
