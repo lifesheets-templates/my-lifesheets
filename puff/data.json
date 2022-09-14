@@ -13,7 +13,12 @@
 		{
 			"date": "2022-09-01",
 			"time": "14:00",
-			"cigarettes": 1
+			"cigarettes": 2
+		},
+		{
+			"cigarettes": 1,
+			"date": "2022-09-02",
+			"time": "18:00"
 		}
 	]
 }
