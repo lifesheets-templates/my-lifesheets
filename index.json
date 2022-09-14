@@ -95,5 +95,19 @@
 		"storage": "",
 		"custom_css": "",
 		"charts_placement": ""
+	},
+	"igrow": {
+		"name": "iGrow",
+		"slug": "igrow",
+		"entry_name": "measurement",
+		"entries_name": "measurements",
+		"description": "child growth tracker",
+		"private": false,
+		"icon": "🐣",
+		"color": "#b36800",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
