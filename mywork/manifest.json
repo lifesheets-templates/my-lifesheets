@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
 	"name": "MyWork",
 	"short_name": "MyWork",
-	"start_url": "https://leaverou.lifesheets.app/mywork",
+	"start_url": "https://lifesheets-templates.lifesheets.app/mywork",
 	"display": "standalone",
 	"background_color": "#83bb1b",
 	"description": "work time tracker",
