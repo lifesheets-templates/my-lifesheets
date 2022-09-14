@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Childcare: entry tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">👶🏼</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #8a6682;
+			--icon: "👶🏼";
+		}
+		undefined
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/childcare/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">👶🏼</span>
+			<span class="app-name">Childcare</span>
+		</h1>
+		<h2>childcare calculator</h2>
+		<div class="mv-bar mv-ui"></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			
+		<a id=entries></a>
+			<div class="field-row">
+				<span property="hourly_rate" data-type="property" data-prefix="Hourly rate: €" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+				<span data-type="expression" data-prefix="Balance: €" mv-value="sum(balance)"></span>
+			</div>
+			<span data-type="spacer" class="appearance-line"></span>
+			<div class="field-row">
+				<button data-type="action" mv-action="add(type: Care, entry)" class="appearance-stretch">Add care</button>
+				<button data-type="action" mv-action="add(type: &quot;Payment&quot;, entry)" class="appearance-stretch">Add payment</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="type" data-type="property" mv-options="Care, Payment, Balance" class="type-options"></span>
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="time" data-type="property" data-prefix=" at " data-show="[process_visible(type = 'Care')]" mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
+					<time property="end_time" data-type="property" data-prefix=" to " data-show="[process_visible(time and type = 'Care')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<time property="end_date" data-type="property" data-prefix=" on " data-show="[process_visible(if(time and end_time, if(end_date = date, 'edit', true), false))]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
+					<span property="end_date_time" data-type="expression" data-show="false" mv-value="datetime(end_date, end_time)"></span>
+					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
+					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span property="payment_amount" data-type="property" data-prefix="€" data-show="[process_visible(type = &quot;Payment&quot;)]" mv-default="0" mv-editor-type="number" mv-editor-min="1" mv-editor-max="1000" mv-editor-step="1" class="type-number"></span>
+					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+')]€" data-show="edit" mv-value="[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]"></span>
+					<span data-type="expression" data-prefix="(€" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
+				</header>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
