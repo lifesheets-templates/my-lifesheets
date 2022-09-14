@@ -6,7 +6,7 @@
 		"description": "childcare calculator",
 		"private": false,
 		"icon": "👶🏼",
-		"color": "#8a6682",
+		"color": "#d327a5",
 		"storageType": "",
 		"storage": "",
 		"notes": true,
@@ -180,7 +180,7 @@
 				"expression": "[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]",
 				"visible": "edit",
 				"visible_custom": "type='Care'",
-				"prefix": "[if(balance > 0, '+')]€"
+				"prefix": "[if(balance > 0, '+') & currency]"
 			},
 			"name": "balance"
 		},
@@ -189,7 +189,7 @@
 			"scope": "entry",
 			"settings": {
 				"expression": "sum($all.$previous.balance) + balance",
-				"prefix": "(€",
+				"prefix": "[\"(\" & currency]",
 				"suffix": ")"
 			}
 		}
@@ -199,7 +199,17 @@
 			"type": "property",
 			"scope": "root",
 			"settings": {
-				"prefix": "Hourly rate: €",
+				"type": "options",
+				"options": "€,$,£",
+				"prefix": "Currency: "
+			},
+			"name": "currency"
+		},
+		{
+			"type": "property",
+			"scope": "root",
+			"settings": {
+				"prefix": "[\"Hourly rate: \" & currency]",
 				"default": "5"
 			},
 			"name": "hourly_rate"
@@ -209,7 +219,7 @@
 			"scope": "root",
 			"settings": {
 				"expression": "sum(balance)",
-				"prefix": "Balance: €"
+				"prefix": "[\"Balance: \" & currency]"
 			}
 		},
 		{
