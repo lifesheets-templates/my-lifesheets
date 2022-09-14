@@ -13,13 +13,13 @@
 			--accent-color: #83bb1b;
 			--icon: "👩🏽‍💻";
 		}
+		undefined
 	</style>
-	
 	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="mywork" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/mywork/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/mywork/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">👩🏽‍💻</span>
@@ -41,17 +41,17 @@
 					<th hc-name="b">Sum of earnings</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart18" mv-value="sort(groupBy(earnings, project), '$value')">
+			<tbody mv-list="chart17" mv-value="sort(groupBy(entry.earnings, entry.project), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
-					<td>[sum($items)]</td>
+					<td property="$result" datatype="number" mv-attribute="data-value" data-value="[sum($items)]">['$' & $result]</td>
 				</tr>
 			</tbody>
 		</table>
-	<figcaption>Sum of earnings per project value</figcaption></figure>
+	<figcaption>Earnings per project</figcaption></figure>
 				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="pie" x="b">
+	<h-chart id="chart18" type="pie" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -59,7 +59,7 @@
 					<th hc-name="b">Sum of hours_worked</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart19" mv-value="sort(groupBy(hours_worked, project), '$value')">
+			<tbody mv-list="chart18" mv-value="sort(groupBy(entry.hours_worked, entry.project), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[sum($items)]</td>
@@ -67,7 +67,7 @@
 			</tbody>
 		</table>
 	</h-chart>
-	<figcaption>Sum of hours_worked per project value</figcaption></figure>
+	<figcaption>Hours worked per project</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<span data-type="expression" data-prefix="$" data-suffix=" total earnings" mv-value="sum(earnings)" class="appearance-line"></span>
@@ -78,6 +78,7 @@
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header class="field-row">
+					<span property="project" data-type="property" data-prefix="Project: " mv-options="Personal, Synergy, Breeze, Quest" class="type-options"></span>
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
@@ -86,10 +87,10 @@
 					<time property="end_date" data-type="property" data-prefix=" on " data-show="[process_visible(if(time and end_time, if(end_date = date, 'edit', true), false))]" mv-default="[if(end_time, if(end_time < time, date(date + 1 * days()), date))]" mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="datetime(end_date, end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
-					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
-					<span property="project" data-type="property" data-prefix="Project: " mv-options="Personal, Synergy, Breeze, Quest" class="type-options"></span>
-					<span property="earnings" data-type="expression" data-prefix="$" mv-value="if(project = &quot;Personal&quot;, 0, 80 * hours_worked)"></span>
-					<span property="hours_worked" data-type="expression" mv-value="hours(end_date_time - date_time)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span property="duration_readable" data-type="expression" data-suffix=" =" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
+					<span property="earnings" data-type="expression" data-prefix="$" mv-value="if(project = &quot;Personal&quot;, 0, 80 * hours_worked)" class="bold"></span>
+					<span property="hours_worked" data-type="expression" data-show="false" mv-value="hours(end_date_time - date_time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
