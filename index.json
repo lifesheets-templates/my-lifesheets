@@ -47,7 +47,7 @@
 		"name": "MyBody",
 		"slug": "mybody",
 		"entry_name": "measurement",
-		"description": "measurement tracker",
+		"description": "blood pressure tracker",
 		"private": false,
 		"icon": "💪🏼",
 		"color": "#5fa6c4",
