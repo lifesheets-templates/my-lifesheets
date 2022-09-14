@@ -1,0 +1,258 @@
+{
+	"app": {
+		"name": "Childcare",
+		"slug": "childcare",
+		"entryName": "entry",
+		"description": "childcare calculator",
+		"private": false,
+		"icon": "👶🏼",
+		"color": "#8a6682",
+		"storageType": "",
+		"storage": "",
+		"notes": true,
+		"_name": "Childcare",
+		"_entryName": "entry",
+		"entry_name": "entry",
+		"entries_name": "entries"
+	},
+	"temporal": {
+		"times": "yes",
+		"ranges": "yes",
+		"defaultDate": "[$today]",
+		"defaultTime": "11:30",
+		"showDuration": true,
+		"defaultEndTime": "21:30"
+	},
+	"entry": [
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "options",
+				"options": "Care, Payment, Balance"
+			},
+			"name": "type"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]",
+				"visible": "[type = 'Care']"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " to ",
+				"type": "time",
+				"default": "",
+				"visible": "[time and type = 'Care']",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "end_time"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"prefix": " on ",
+				"visible": "[if(time and end_time, if(end_date = date, 'edit', true), false)]",
+				"default": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
+				"min_date": "[date]"
+			},
+			"name": "end_date"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(end_date, end_time)"
+			},
+			"name": "end_date_time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "end_date_time - date_time"
+			},
+			"name": "duration"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"visible": "[end_date and (time and end_time)]",
+				"prefix": "(",
+				"suffix": ")",
+				"expression": "duration(duration, 2)"
+			},
+			"name": "duration_readable"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"max": 1000,
+				"default": "0",
+				"prefix": "€",
+				"visible": "[type = \"Payment\"]",
+				"visible_custom": "type='Payment'"
+			},
+			"name": "payment_amount"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]",
+				"visible": "edit",
+				"visible_custom": "type='Care'",
+				"prefix": "[if(balance > 0, '+')]€"
+			},
+			"name": "balance"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "sum($all.$previous.balance) + balance",
+				"prefix": "(€",
+				"suffix": ")"
+			}
+		}
+	],
+	"root": [
+		{
+			"type": "property",
+			"scope": "root",
+			"settings": {
+				"prefix": "Hourly rate: €",
+				"default": "5"
+			},
+			"name": "hourly_rate"
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "sum(balance)",
+				"prefix": "Balance: €"
+			}
+		},
+		{
+			"type": "spacer",
+			"scope": "root",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "new",
+				"target": "add(entry)",
+				"label": "Add care",
+				"appearance": "stretch",
+				"set_pairs": [
+					{
+						"name": "type",
+						"value": "Care"
+					}
+				],
+				"filter_pairs": []
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "new",
+				"target": "add(entry)",
+				"label": "Add payment",
+				"appearance": "stretch",
+				"set_pairs": [
+					{
+						"name": "type",
+						"value": "\"Payment\""
+					}
+				],
+				"filter_pairs": []
+			}
+		}
+	],
+	"charts": []
+}
