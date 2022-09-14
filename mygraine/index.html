@@ -13,12 +13,13 @@
 			--accent-color: #cc0044;
 			--icon: "🤕";
 		}
+		undefined
 	</style>
 	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="mygraine" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/mygraine/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/mygraine/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">🤕</span>
@@ -33,15 +34,34 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="bar">
+	<h-chart id="chart19" type="bar" x="a">
 		<table>
 			<thead>
 				<tr>
 					<th hc-name="a">Month</th>
+					<th hc-name="b">Average intensity</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart19" mv-value="groupBy(entry.intensity, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average intensity per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart20" type="pie" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Side</th>
 					<th hc-name="b">Number of migraines</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart19" mv-value="groupBy(entry, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart20" mv-value="sort(groupBy(entry.entry, entry.side), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[count($items)]</td>
@@ -49,24 +69,7 @@
 			</tbody>
 		</table>
 	</h-chart>
-	<figcaption>Number of migraines per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
-	
-		<table>
-			<thead>
-				<tr>
-					<th hc-name="a">Side</th>
-					<th hc-name="b">Number of side values</th>
-				</tr>
-			</thead>
-			<tbody mv-list="chart21" mv-value="sort(groupBy(side, side), '$value')">
-				<tr mv-list-item mv-group>
-					<td>[$value]</td>
-					<td>[count($items)]</td>
-				</tr>
-			</tbody>
-		</table>
-	<figcaption>Number of side values per side value</figcaption></figure>
+	<figcaption>Number of migraines per side</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
