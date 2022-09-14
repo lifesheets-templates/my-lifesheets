@@ -206,7 +206,8 @@
 				"type": "line",
 				"aggregate_of": "total_english_word_count",
 				"aggregate": "sum",
-				"group_by": "month"
+				"group_by": "month",
+				"caption": "English words per month"
 			}
 		},
 		{
@@ -215,7 +216,8 @@
 			"settings": {
 				"type": "line",
 				"aggregate": "sum",
-				"aggregate_of": "total_greek_word_count"
+				"aggregate_of": "total_greek_word_count",
+				"caption": "Greek words per month"
 			}
 		},
 		{
@@ -225,7 +227,8 @@
 				"type": "line",
 				"aggregate": "average",
 				"aggregate_of": "english_percentage",
-				"min_width": 500
+				"min_width": 500,
+				"caption": "Percentage of English words per month"
 			}
 		}
 	]
