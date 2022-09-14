@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
 	"name": "Zoe words",
 	"short_name": "Zoe words",
-	"start_url": "https://leaverou.lifesheets.app/zoe-words",
+	"start_url": "https://lifesheets-templates.lifesheets.app/zoe-words",
 	"display": "standalone",
 	"background_color": "#c34b85",
 	"description": "learning to speak",
