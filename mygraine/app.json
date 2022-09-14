@@ -169,7 +169,7 @@
 			"scope": "entry",
 			"settings": {
 				"expression": "duration(end_date_time - $previous.end_date_time, 2)",
-				"visible": "[end_time and $previous.end_time]",
+				"visible": "false",
 				"suffix": " since last migraine"
 			}
 		}
