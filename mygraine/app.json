@@ -234,8 +234,8 @@
 			"type": "chart",
 			"scope": "charts",
 			"settings": {
-				"aggregate": "count",
-				"aggregate_of": "entry",
+				"aggregate": "average",
+				"aggregate_of": "intensity",
 				"orientation": "horizontal",
 				"type": "bar"
 			}
@@ -244,8 +244,10 @@
 			"type": "chart",
 			"scope": "charts",
 			"settings": {
-				"aggregate_of": "side",
-				"group_by": "side"
+				"aggregate_of": "entry",
+				"group_by": "side",
+				"type": "pie",
+				"caption": "Number of migraines per side"
 			}
 		}
 	]
