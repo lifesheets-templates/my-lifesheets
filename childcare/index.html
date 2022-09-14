@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../style.css">
 	<style>
 		:root {
-			--accent-color: #8a6682;
+			--accent-color: #d327a5;
 			--icon: "👶🏼";
 		}
 		undefined
@@ -19,7 +19,7 @@
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/childcare/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/childcare/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">👶🏼</span>
@@ -34,8 +34,9 @@
 			
 		<a id=entries></a>
 			<div class="field-row">
-				<span property="hourly_rate" data-type="property" data-prefix="Hourly rate: €" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
-				<span data-type="expression" data-prefix="Balance: €" mv-value="sum(balance)"></span>
+				<span property="currency" data-type="property" data-prefix="Currency: " mv-options="€,$,£" class="type-options"></span>
+				<span property="hourly_rate" data-type="property" data-prefix="[&quot;Hourly rate: &quot; & currency]" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+				<span data-type="expression" data-prefix="[&quot;Balance: &quot; & currency]" mv-value="sum(balance)"></span>
 			</div>
 			<span data-type="spacer" class="appearance-line"></span>
 			<div class="field-row">
@@ -57,8 +58,8 @@
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="payment_amount" data-type="property" data-prefix="€" data-show="[process_visible(type = &quot;Payment&quot;)]" mv-default="0" mv-editor-type="number" mv-editor-min="1" mv-editor-max="1000" mv-editor-step="1" class="type-number"></span>
-					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+')]€" data-show="edit" mv-value="[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]"></span>
-					<span data-type="expression" data-prefix="(€" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
+					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+') & currency]" data-show="edit" mv-value="[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]"></span>
+					<span data-type="expression" data-prefix="[&quot;(&quot; & currency]" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
 				</header>
 			</article>
 		</section>
