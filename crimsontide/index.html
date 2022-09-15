@@ -43,7 +43,7 @@
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<time property="end_date" data-type="property" data-prefix=" to " mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
-					<span property="duration" data-type="expression" data-show="false" mv-value="end_date - date"></span>
+					<span property="duration" data-type="expression" data-show="false" mv-value="end_date - date + 1 * day()"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date)]" mv-value="duration(duration, 2)"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<meter-discrete property="flow" data-type="property" mv-default="3" min="1" max="5" step="1" mv-edit-as="meter" icon="🩸" class="type-number bar"></meter-discrete>
