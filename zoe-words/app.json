@@ -246,8 +246,9 @@
 				"type": "line",
 				"aggregate": "average",
 				"aggregate_of": "english_percentage",
-				"min_width": 500,
-				"caption": "Percentage of English words per month"
+				"min_width": 530,
+				"caption": "Percentage of English words per month",
+				"number_format": "$result & \"%\""
 			}
 		}
 	]
