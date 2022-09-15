@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>NappyTime: diaper change tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🧷</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #916c4b;
+			--icon: "🧷";
+		}
+		
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/nappytime/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">🧷</span>
+			<span class="app-name">NappyTime</span>
+		</h1>
+		<h2>diaper change tracker</h2>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart9" type="bar" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Number of diaper changes</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart9" mv-value="groupBy(entry.entry, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[count($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Number of diaper changes per day</figcaption></figure>
+			</div>
+		<a id=entries></a>
+			<div class="field-row">
+				<button data-type="action" data-show="edit" mv-action="add(status: &quot;Wet&quot;, entry)">🟡 Wet diaper</button>
+				<button data-type="action" data-show="edit" mv-action="add(status: &quot;Dirty&quot;, entry)">💩 Dirty diaper</button>
+				<button data-type="action" data-show="edit" mv-action="add(status: &quot;Wet&quot;, entry)">🟡💩 Mixed diaper</button>
+				<button data-type="action" data-show="edit" mv-action="add(status: &quot;Wet&quot;, entry)">Dry diaper</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span property="status" data-type="property" mv-options="Wet, Dirty, Mixed, Dry" class="type-options"></span>
+				</header>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
