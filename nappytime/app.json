@@ -1,0 +1,185 @@
+{
+	"app": {
+		"name": "NappyTime",
+		"slug": "nappytime",
+		"entry_name": "diaper change",
+		"entries_name": "diaper changes",
+		"description": "diaper change tracker",
+		"private": false,
+		"icon": "🧷",
+		"color": "#916c4b",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
+	},
+	"temporal": {
+		"times": "yes",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "options",
+				"options": "Wet, Dirty, Mixed, Dry"
+			},
+			"name": "status"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [
+					{
+						"name": "status",
+						"value": "\"Wet\""
+					}
+				],
+				"filter_pairs": [],
+				"label": "🟡 Wet diaper"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [
+					{
+						"name": "status",
+						"value": "\"Dirty\""
+					}
+				],
+				"filter_pairs": [],
+				"label": "💩 Dirty diaper"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [
+					{
+						"name": "status",
+						"value": "\"Wet\""
+					}
+				],
+				"filter_pairs": [],
+				"label": "🟡💩 Mixed diaper"
+			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [
+					{
+						"name": "status",
+						"value": "\"Wet\""
+					}
+				],
+				"filter_pairs": [],
+				"label": "Dry diaper"
+			}
+		}
+	],
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "count",
+				"group_by": "day",
+				"type": "bar",
+				"orientation": "horizontal"
+			}
+		}
+	]
+}
