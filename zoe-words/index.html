@@ -91,19 +91,20 @@
 	<figcaption>Percentage of English words per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
-			<time property="birthday" data-type="property" data-prefix="Child’s birthday: " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="appearance-line type-date"></time>
 			<div class="field-row">
-				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add word set</button>
+				<span property="child_name" data-type="property" mv-default="Zoe" class="type-text"></span>
+				<time property="birthday" data-type="property" data-prefix="was born on " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
 			</div>
+			<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-line">➕ Add word set</button>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header class="field-row">
-					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
-					<time property="date" data-type="property" mv-default="[date($previous.date + 1 * day())]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<span property="weekday" data-type="expression" data-prefix="On " mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" data-suffix="," mv-default="[date($previous.date + 1 * day())]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<span data-type="expression" data-prefix="[child_name & &quot; was &quot;]" data-suffix=" old" mv-value="duration(date - birthday, 'months')"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
-					<span data-type="expression" data-suffix=" old" mv-value="duration(date - birthday, 'months')"></span>
-					<span property="total_word_count" data-type="expression" data-prefix=" • " data-suffix=" total words," mv-value="total_english_word_count + total_greek_word_count"></span>
-					<span property="total_new" data-type="expression" data-suffix=" new" mv-value="english_word_count + greek_word_count"></span>
+					<span property="total_word_count" data-type="expression" data-suffix=" total words," mv-value="total_english_word_count + total_greek_word_count" class="bold"></span>
+					<span property="total_new" data-type="expression" data-suffix=" new" mv-value="english_word_count + greek_word_count" class="bold"></span>
 					<span property="english_percentage" data-type="expression" data-prefix=" 🇬🇧 " data-suffix="%" mv-value="100 * (total_english_word_count / total_word_count)"></span>
 				</header>
 				<span data-type="spacer" class="appearance-line"></span>
