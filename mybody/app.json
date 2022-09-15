@@ -1,6 +1,6 @@
 {
 	"app": {
-		"name": "MyBody",
+		"name": "MyBod",
 		"slug": "mybody",
 		"entry_name": "measurement",
 		"description": "measurement tracker",
@@ -13,7 +13,7 @@
 		"entries_name": "measurements"
 	},
 	"temporal": {
-		"times": "",
+		"times": "yes",
 		"ranges": ""
 	},
 	"entry": [
@@ -47,9 +47,43 @@
 		{
 			"type": "property",
 			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
 			"settings": {
 				"suffix": "kg",
-				"default": ""
+				"default": "",
+				"prefix": "Weight: "
 			},
 			"name": "weight"
 		},
