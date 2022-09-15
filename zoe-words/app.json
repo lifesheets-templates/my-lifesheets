@@ -26,7 +26,8 @@
 				"deletable"
 			],
 			"settings": {
-				"expression": "weekday(date, 'shortname')"
+				"expression": "weekday(date, 'shortname')",
+				"prefix": "On "
 			},
 			"name": "weekday"
 		},
@@ -41,9 +42,20 @@
 				"default": "[date($previous.date + 1 * day())]",
 				"formatting": [
 					"b"
-				]
+				],
+				"prefix": "",
+				"suffix": ","
 			},
 			"name": "date"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "duration(date - birthday, 'months')",
+				"suffix": " old",
+				"prefix": "[child_name & \" was \"]"
+			}
 		},
 		{
 			"type": "spacer",
@@ -54,17 +66,12 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "duration(date - birthday, 'months')",
-				"suffix": " old"
-			}
-		},
-		{
-			"type": "expression",
-			"scope": "entry",
-			"settings": {
-				"prefix": " • ",
+				"prefix": "",
 				"expression": "total_english_word_count + total_greek_word_count",
-				"suffix": " total words,"
+				"suffix": " total words,",
+				"formatting": [
+					"b"
+				]
 			},
 			"name": "total_word_count"
 		},
@@ -73,7 +80,10 @@
 			"scope": "entry",
 			"settings": {
 				"expression": "english_word_count + greek_word_count",
-				"suffix": " new"
+				"suffix": " new",
+				"formatting": [
+					"b"
+				]
 			},
 			"name": "total_new"
 		},
@@ -177,9 +187,18 @@
 			"type": "property",
 			"scope": "root",
 			"settings": {
+				"type": "text",
+				"default": "Zoe"
+			},
+			"name": "child_name"
+		},
+		{
+			"type": "property",
+			"scope": "root",
+			"settings": {
 				"type": "date",
-				"appearance": "line",
-				"prefix": "Child’s birthday: ",
+				"appearance": "",
+				"prefix": "was born on ",
 				"default": "2019-07-12"
 			},
 			"name": "birthday"
@@ -192,7 +211,7 @@
 				"label": "➕ Add word set",
 				"target": "add(entry)",
 				"target_preset": "new",
-				"appearance": "",
+				"appearance": "line",
 				"set_pairs": [],
 				"filter_pairs": []
 			}
