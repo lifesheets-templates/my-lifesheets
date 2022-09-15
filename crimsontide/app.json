@@ -214,17 +214,6 @@
 				"number_format": "duration($result, \"days\")",
 				"type": "bar"
 			}
-		},
-		{
-			"type": "chart",
-			"scope": "charts",
-			"settings": {
-				"aggregate": "average",
-				"aggregate_of": "duration",
-				"caption": "Cycle duration",
-				"type": "table",
-				"group_by": "duration"
-			}
 		}
 	]
 }
