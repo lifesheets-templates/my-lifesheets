@@ -195,7 +195,7 @@
 				"set_pairs": [
 					{
 						"name": "side",
-						"value": "\"Left\""
+						"value": "Right"
 					}
 				],
 				"filter_pairs": [],
@@ -213,7 +213,7 @@
 				"set_pairs": [
 					{
 						"name": "side",
-						"value": "if(side = \"Left\", \"Right\", \"Left\")"
+						"value": "if(last(entry).side = \"Left\", \"Right\", \"Left\")"
 					}
 				],
 				"filter_pairs": [],
@@ -235,7 +235,7 @@
 					}
 				],
 				"filter_pairs": [],
-				"label": "Switch breast"
+				"label": "Unlatched"
 			}
 		}
 	],
