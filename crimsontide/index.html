@@ -61,8 +61,9 @@
 						}
 					};</script>
 	<figcaption>Average cycle_duration per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
+	<h-chart id="chart16" type="bar" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -73,10 +74,21 @@
 			<tbody mv-list="chart16" mv-value="groupBy(entry.duration, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
-					<td property="$result" datatype="number" mv-attribute="data-value" data-value="[average($items)]">[duration($result, 2)]</td>
+					<td>[average($items)]</td>
 				</tr>
 			</tbody>
 		</table>
+	</h-chart><script>chart16.xFormat = $result => {
+						try {
+							let $fn = Mavo.Script.$fn;
+							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
+							return ($fn.duration.call($this, $result, 2));
+						}
+						catch (e) {
+							console.warn(e);
+							return $result;
+						}
+					};</script>
 	<figcaption>Cycle duration</figcaption></figure>
 			</div>
 		<a id=entries></a>
