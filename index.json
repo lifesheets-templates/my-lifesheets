@@ -137,5 +137,19 @@
 		"storage": "",
 		"custom_css": "",
 		"charts_placement": ""
+	},
+	"vocababy": {
+		"name": "Vocababy",
+		"slug": "vocababy",
+		"entry_name": "word set",
+		"entries_name": "word sets",
+		"description": "learning to speak",
+		"private": false,
+		"icon": "👶🏼",
+		"color": "#7d4988",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
