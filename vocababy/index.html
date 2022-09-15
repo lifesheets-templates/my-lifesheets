@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Vocababy: word set tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">👶🏼</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #7d4988;
+			--icon: "👶🏼";
+		}
+		
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/vocababy/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">👶🏼</span>
+			<span class="app-name">Vocababy</span>
+		</h1>
+		<h2>learning to speak</h2>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart10" type="bar" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Sum of new_words</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart10" mv-value="groupBy(entry.new_words, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>New words per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart11" type="bar" x="a">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Sum of total_words</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart11" mv-value="groupBy(entry.total_words, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Total words per month</figcaption></figure>
+			</div>
+		<a id=entries></a>
+			<div class="field-row">
+				<span property="child_name" data-type="property" mv-default="Zoe" class="type-text"></span>
+				<time property="birthday" data-type="property" data-prefix="was born on " mv-default="2019-07-12" mv-edit-type="inline" mv-editor-type="date" class="type-date"></time>
+				<span data-type="spacer" class="appearance-stretch"></span>
+				<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-stretch">➕ Add word set</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<span property="child_age_readable" data-type="expression" data-prefix="[child_name & &quot; was &quot;]" data-suffix=" old" mv-value="duration(date - birthday, &quot;months&quot;)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span property="new_words" data-type="expression" data-suffix=" new words" mv-value="count(word)" class="bold"></span>
+					<span property="total_words" data-type="expression" data-prefix="/ " data-suffix=" total words" mv-value="$previous.total_words + new_words"></span>
+				</header>
+				<span property="word" data-type="property" mv-multiple="" mv-initial-items="0" data-list-separator=", " class="appearance-line type-text"></span>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
