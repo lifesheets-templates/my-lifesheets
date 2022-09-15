@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>CrimsonTide: period tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🩸</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #5f112c;
+			--icon: "🩸";
+		}
+		
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/crimsontide/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">🩸</span>
+			<span class="app-name">CrimsonTide</span>
+		</h1>
+		<h2>period tracker</h2>
+		<div class="mv-bar mv-ui"></div>
+	</header>
+
+	<main class="charts-first">
+		<a id=stats></a>
+			
+		<a id=entries></a>
+			<div class="field-row">
+				<button data-type="action" data-show="edit" mv-action="add(entry)">🩸 Period started</button>
+				<button data-type="action" mv-action="add(entry)">🎉 Period ended!</button>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="end_date" data-type="property" data-prefix=" to " mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
+					<span property="duration" data-type="expression" data-show="false" mv-value="end_date - date"></span>
+					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date)]" mv-value="duration(duration, 2)"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<meter-discrete property="flow" data-type="property" mv-default="3" min="1" max="5" step="1" mv-edit-as="meter" icon="🩸" class="type-number bar"></meter-discrete>
+					<meter-discrete property="pain" data-type="property" mv-default="1" min="1" max="5" step="1" mv-edit-as="meter" icon="🥴" class="type-number bar"></meter-discrete>
+				</header>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
