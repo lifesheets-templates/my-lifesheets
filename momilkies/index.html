@@ -35,9 +35,9 @@
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(side: &quot;Left&quot;, entry)">Start from Left</button>
-				<button data-type="action" data-show="edit" mv-action="add(side: &quot;Left&quot;, entry)">Start from Right</button>
-				<button data-type="action" data-show="edit" mv-action="set(last(entry), side: if(side = &quot;Left&quot;, &quot;Right&quot;, &quot;Left&quot;))">Switch breast</button>
-				<button data-type="action" data-show="edit" mv-action="set(last(entry), end_time: time($now))">Switch breast</button>
+				<button data-type="action" data-show="edit" mv-action="add(side: Right, entry)">Start from Right</button>
+				<button data-type="action" data-show="edit" mv-action="set(last(entry), side: if(last(entry).side = &quot;Left&quot;, &quot;Right&quot;, &quot;Left&quot;))">Switch breast</button>
+				<button data-type="action" data-show="edit" mv-action="set(last(entry), end_time: time($now))">Unlatched</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
