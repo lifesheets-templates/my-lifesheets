@@ -239,5 +239,19 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "bar",
+				"aggregate": "sum",
+				"aggregate_of": "duration",
+				"group_by": "day",
+				"caption": "Time spent breastfeeding per day",
+				"orientation": "horizontal",
+				"number_format": "duration($result)"
+			}
+		}
+	]
 }
