@@ -132,6 +132,24 @@
 			"name": "bmi"
 		},
 		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {
+				"appearance": "line"
+			}
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "media",
+				"allow_multiple": "yes",
+				"list_separator": "",
+				"initial_items": "0"
+			},
+			"name": "photos"
+		},
+		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
