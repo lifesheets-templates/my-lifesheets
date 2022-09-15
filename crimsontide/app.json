@@ -81,11 +81,30 @@
 			],
 			"settings": {
 				"visible": "[end_date ]",
-				"prefix": "(",
-				"suffix": ")",
+				"prefix": "Period lasted ",
+				"suffix": "[if($index > 0, ', ')]",
 				"expression": "duration(duration, 2)"
 			},
 			"name": "duration_readable"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"visible": "[$index > 0]",
+				"expression": "duration(cycle_duration, 'days')",
+				"prefix": "Cycle lasted "
+			},
+			"name": "cycle_duration_readable"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "date - $previous.date",
+				"visible": "false"
+			},
+			"name": "cycle_duration"
 		},
 		{
 			"type": "spacer",
@@ -149,5 +168,25 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate_of": "cycle_duration",
+				"aggregate": "average",
+				"number_format": "duration($result, \"days\")",
+				"type": "bar"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "duration",
+				"caption": "Cycle duration"
+			}
+		}
+	]
 }
