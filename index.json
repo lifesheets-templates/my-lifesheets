@@ -123,5 +123,19 @@
 		"storage": "",
 		"custom_css": "",
 		"charts_placement": ""
+	},
+	"momilkies": {
+		"name": "Mo’Milkies",
+		"slug": "momilkies",
+		"entry_name": "nursing session",
+		"entries_name": "nursing sessions",
+		"description": "nursing session tracker",
+		"private": false,
+		"icon": "🤱🏽",
+		"color": "#c591ba",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
