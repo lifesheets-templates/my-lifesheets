@@ -169,7 +169,7 @@
 					"b"
 				]
 			},
-			"name": "payment_amount"
+			"name": "amount"
 		},
 		{
 			"type": "spacer",
@@ -180,8 +180,8 @@
 			"type": "expression",
 			"scope": "entry",
 			"settings": {
-				"expression": "[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]",
-				"visible": "edit",
+				"expression": "[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * amount)]",
+				"visible": "true",
 				"visible_custom": "type='Care'",
 				"prefix": "[if(balance > 0, '+') & currency]"
 			},
