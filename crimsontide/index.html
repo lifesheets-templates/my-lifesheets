@@ -26,12 +26,59 @@
 			<span class="app-name">CrimsonTide</span>
 		</h1>
 		<h2>period tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart14" type="bar" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Average cycle_duration</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart14" mv-value="groupBy(entry.cycle_duration, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart><script>chart14.xFormat = $result => {
+						try {
+							let $fn = Mavo.Script.$fn;
+							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
+							return ($fn.duration.call($this, $result, "days"));
+						}
+						catch (e) {
+							console.warn(e);
+							return $result;
+						}
+					};</script>
+	<figcaption>Average cycle_duration per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
+	
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Average duration</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart16" mv-value="groupBy(entry.duration, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td property="$result" datatype="number" mv-attribute="data-value" data-value="[average($items)]">[duration($result, 2)]</td>
+				</tr>
+			</tbody>
+		</table>
+	<figcaption>Cycle duration</figcaption></figure>
+			</div>
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)">🩸 Period started</button>
@@ -44,7 +91,9 @@
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<time property="end_date" data-type="property" data-prefix=" to " mv-edit-type="inline" mv-editor-type="date" mv-editor-min="[date]" class="type-date"></time>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date - date + 1 * day()"></span>
-					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(end_date)]" mv-value="duration(duration, 2)"></span>
+					<span property="duration_readable" data-type="expression" data-prefix="Period lasted " data-suffix="[if($index > 0, ', ')]" data-show="[process_visible(end_date)]" mv-value="duration(duration, 2)"></span>
+					<span property="cycle_duration_readable" data-type="expression" data-prefix="Cycle lasted " data-show="[process_visible($index > 0)]" mv-value="duration(cycle_duration, 'days')"></span>
+					<span property="cycle_duration" data-type="expression" data-show="false" mv-value="date - $previous.date"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<meter-discrete property="flow" data-type="property" mv-default="3" min="1" max="5" step="1" mv-edit-as="meter" icon="🩸" class="type-number bar"></meter-discrete>
 					<meter-discrete property="pain" data-type="property" mv-default="1" min="1" max="5" step="1" mv-edit-as="meter" icon="🥴" class="type-number bar"></meter-discrete>
