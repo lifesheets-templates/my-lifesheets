@@ -166,6 +166,42 @@
 				"filter_pairs": [],
 				"label": "🎉 Period ended!"
 			}
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"prefix": "",
+				"expression": "average(cycle_duration)",
+				"visible": "false"
+			},
+			"name": "average_cycle"
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"prefix": "Average cycle length: ",
+				"expression": "duration(average_cycle, 'days')"
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "date(last(end_date) + average_cycle)",
+				"prefix": "",
+				"visible": "false"
+			},
+			"name": "next_period"
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"prefix": "/ Next period in ",
+				"expression": "duration(next_period - $today, 'days')"
+			}
 		}
 	],
 	"charts": [
@@ -186,7 +222,8 @@
 				"aggregate": "average",
 				"aggregate_of": "duration",
 				"caption": "Cycle duration",
-				"type": "bar"
+				"type": "table",
+				"group_by": "duration"
 			}
 		}
 	]
