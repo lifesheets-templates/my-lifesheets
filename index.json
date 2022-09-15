@@ -109,5 +109,19 @@
 		"storage": "",
 		"custom_css": "",
 		"charts_placement": ""
+	},
+	"nappytime": {
+		"name": "NappyTime",
+		"slug": "nappytime",
+		"entry_name": "diaper change",
+		"entries_name": "diaper changes",
+		"description": "diaper change tracker",
+		"private": false,
+		"icon": "🧷",
+		"color": "#916c4b",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
