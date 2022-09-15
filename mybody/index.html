@@ -34,7 +34,7 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
 	
-	<h-chart id="chart13" type="line" x="a">
+	<h-chart id="chart16" type="line" x="a" options="smooth">
 		<table>
 			<thead>
 				<tr>
@@ -42,7 +42,7 @@
 					<th hc-name="b">Average bmi</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart13" mv-value="groupBy(entry.bmi, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart16" mv-value="groupBy(entry.bmi, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -51,6 +51,82 @@
 		</table>
 	</h-chart>
 	<figcaption>Average bmi per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart20" type="line" x="a" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average weight</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart20" mv-value="groupBy(entry.weight, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average weight per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart18" type="line" x="a" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average bust</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart18" mv-value="groupBy(entry.bust, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Bust per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart19" type="line" x="a" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average waist</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart19" mv-value="groupBy(entry.waist, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Waist circumference per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart21" type="line" x="a" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average hip</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart21" mv-value="groupBy(entry.hip, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Hip per day</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
@@ -71,9 +147,9 @@
 				<span data-type="spacer" class="appearance-line"></span>
 				<div class="field-row">
 					<span property="weight" data-type="property" data-prefix="Weight: " data-suffix="kg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<span property="bust" data-type="property" data-prefix="Chest: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="waist" data-type="property" data-prefix="Waist: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="hip" data-type="property" data-prefix="Hip: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
-					<span property="chest" data-type="property" data-prefix="Chest: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="bmi" data-type="expression" data-prefix="BMI: " mv-value="weight / (height/100 * height/100)"></span>
 				</div>
