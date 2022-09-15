@@ -10,3 +10,4 @@
 - [🐣 iGrow](igrow): child growth tracker
 - [🧷 NappyTime](nappytime): diaper change tracker
 - [🤱🏽 Mo’Milkies](momilkies): nursing session tracker
+- [👶🏼 Vocababy](vocababy): learning to speak
