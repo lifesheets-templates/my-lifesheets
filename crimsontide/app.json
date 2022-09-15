@@ -185,7 +185,8 @@
 			"settings": {
 				"aggregate": "average",
 				"aggregate_of": "duration",
-				"caption": "Cycle duration"
+				"caption": "Cycle duration",
+				"type": "bar"
 			}
 		}
 	]
