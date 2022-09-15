@@ -61,40 +61,32 @@
 						}
 					};</script>
 	<figcaption>Average cycle_duration per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
 	
-	<h-chart id="chart16" type="bar" x="b">
 		<table>
 			<thead>
 				<tr>
-					<th hc-name="a">Month</th>
+					<th hc-name="a">Duration</th>
 					<th hc-name="b">Average duration</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart16" mv-value="groupBy(entry.duration, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart15" mv-value="sort(groupBy(entry.duration, entry.duration), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
-					<td>[average($items)]</td>
+					<td property="$result" datatype="number" mv-attribute="data-value" data-value="[average($items)]">[duration($result, 2)]</td>
 				</tr>
 			</tbody>
 		</table>
-	</h-chart><script>chart16.xFormat = $result => {
-						try {
-							let $fn = Mavo.Script.$fn;
-							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
-							return ($fn.duration.call($this, $result, 2));
-						}
-						catch (e) {
-							console.warn(e);
-							return $result;
-						}
-					};</script>
 	<figcaption>Cycle duration</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)">🩸 Period started</button>
 				<button data-type="action" mv-action="add(entry)">🎉 Period ended!</button>
+				<span property="average_cycle" data-type="expression" data-show="false" mv-value="average(cycle_duration)"></span>
+				<span data-type="expression" data-prefix="Average cycle length: " mv-value="duration(average_cycle, 'days')"></span>
+				<span property="next_period" data-type="expression" data-show="false" mv-value="date(last(end_date) + average_cycle)"></span>
+				<span data-type="expression" data-prefix="/ Next period in " mv-value="duration(next_period - $today, 'days')"></span>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
