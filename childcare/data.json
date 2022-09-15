@@ -41,7 +41,15 @@
 			"date": "2022-09-07",
 			"time": "12:00",
 			"payment_amount": 100,
-			"amount": 250
+			"amount": 200
+		},
+		{
+			"type": "Care",
+			"date": "2022-09-08",
+			"time": "11:00",
+			"end_time": "21:00",
+			"end_date": "2022-09-08",
+			"amount": "0"
 		}
 	],
 	"currency": "€"
