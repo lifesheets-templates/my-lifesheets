@@ -70,7 +70,7 @@
 		</table>
 	</h-chart>
 	<figcaption>Greek words per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(500px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(530px, 100vw)">
 	
 	<h-chart id="chart22" type="line" x="a">
 		<table>
@@ -87,7 +87,17 @@
 				</tr>
 			</tbody>
 		</table>
-	</h-chart>
+	</h-chart><script>chart22.yFormat = $result => {
+						try {
+							let $fn = Mavo.Script.$fn;
+							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
+							return ($fn.concatenate($result, "%"));
+						}
+						catch (e) {
+							console.warn(e);
+							return $result;
+						}
+					};</script>
 	<figcaption>Percentage of English words per month</figcaption></figure>
 			</div>
 		<a id=entries></a>
