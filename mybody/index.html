@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>MyBody: measurement tracker</title>
+	<title>MyBod: measurement tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">💪🏼</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
@@ -12,16 +13,17 @@
 			--accent-color: #5fa6c4;
 			--icon: "💪🏼";
 		}
+		undefined
 	</style>
-	
+	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="mybody" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/mybody/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/mybody/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">💪🏼</span>
-			<span class="app-name">MyBody</span>
+			<span class="app-name">MyBod</span>
 		</h1>
 		<h2>measurement tracker</h2>
 		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
@@ -32,7 +34,7 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="line" x="b">
+	<h-chart id="chart13" type="line" x="a">
 		<table>
 			<thead>
 				<tr>
@@ -40,7 +42,7 @@
 					<th hc-name="b">Average bmi</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart13" mv-value="groupBy(bmi, readable_datetime(entry.date, 'day'))">
+			<tbody mv-list="chart13" mv-value="groupBy(entry.bmi, readable_datetime(entry.date, 'day'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -63,13 +65,18 @@
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
-					<span property="weight" data-type="property" data-suffix="kg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
+				</header>
+				<span data-type="spacer" class="appearance-line"></span>
+				<div class="field-row">
+					<span property="weight" data-type="property" data-prefix="Weight: " data-suffix="kg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="waist" data-type="property" data-prefix="Waist: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="hip" data-type="property" data-prefix="Hip: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span property="chest" data-type="property" data-prefix="Chest: " data-suffix="cm" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="bmi" data-type="expression" data-prefix="BMI: " mv-value="weight / (height/100 * height/100)"></span>
-				</header>
+				</div>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
 		</section>
@@ -79,7 +86,7 @@
 	<script>
 		Mavo.Functions.process_visible = function (value) {
 			value = Mavo.value(value);
-			return value === "edit" ? value : Boolean(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
 		}; 
 	</script>
 </body>
