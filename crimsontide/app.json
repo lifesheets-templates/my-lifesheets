@@ -68,7 +68,7 @@
 			],
 			"settings": {
 				"visible": "false",
-				"expression": "end_date - date"
+				"expression": "end_date - date + 1 * day()"
 			},
 			"name": "duration"
 		},
