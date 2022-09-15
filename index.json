@@ -151,5 +151,19 @@
 		"storage": "",
 		"custom_css": "",
 		"charts_placement": ""
+	},
+	"crimsontide": {
+		"name": "CrimsonTide",
+		"slug": "crimsontide",
+		"entry_name": "period",
+		"entries_name": "periods",
+		"description": "period tracker",
+		"private": false,
+		"icon": "🩸",
+		"color": "#5f112c",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	}
 }
