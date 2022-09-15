@@ -57,9 +57,9 @@
 					<span property="end_date_time" data-type="expression" data-show="false" mv-value="datetime(end_date, end_time)"></span>
 					<span property="duration" data-type="expression" data-show="false" mv-value="end_date_time - date_time"></span>
 					<span property="duration_readable" data-type="expression" data-prefix="(" data-suffix=")" data-show="[process_visible(type = 'Care' and end_date and (time and end_time))]" mv-value="duration(duration, 2)"></span>
-					<span property="payment_amount" data-type="property" data-prefix="[currency]" data-show="[process_visible(type != &quot;Care&quot;)]" mv-default="0" mv-editor-type="number" mv-editor-min="1" mv-editor-max="1000" mv-editor-step="1" class="bold type-number"></span>
+					<span property="amount" data-type="property" data-prefix="[currency]" data-show="[process_visible(type != &quot;Care&quot;)]" mv-default="0" mv-editor-type="number" mv-editor-min="1" mv-editor-max="1000" mv-editor-step="1" class="bold type-number"></span>
 					<span data-type="spacer" class="appearance-stretch"></span>
-					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+') & currency]" data-show="edit" mv-value="[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * payment_amount)]"></span>
+					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+') & currency]" mv-value="[if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * amount)]"></span>
 					<span property="cumulative_balance" data-type="expression" data-prefix="[&quot;(&quot; & currency]" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
 				</header>
 			</article>
