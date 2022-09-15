@@ -61,23 +61,6 @@
 						}
 					};</script>
 	<figcaption>Average cycle_duration per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
-	
-		<table>
-			<thead>
-				<tr>
-					<th hc-name="a">Duration</th>
-					<th hc-name="b">Average duration</th>
-				</tr>
-			</thead>
-			<tbody mv-list="chart15" mv-value="sort(groupBy(entry.duration, entry.duration), '$value')">
-				<tr mv-list-item mv-group>
-					<td>[$value]</td>
-					<td property="$result" datatype="number" mv-attribute="data-value" data-value="[average($items)]">[duration($result, 2)]</td>
-				</tr>
-			</tbody>
-		</table>
-	<figcaption>Cycle duration</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
