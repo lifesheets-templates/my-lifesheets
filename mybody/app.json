@@ -93,6 +93,16 @@
 			"settings": {
 				"suffix": "cm",
 				"default": "",
+				"prefix": "Chest: "
+			},
+			"name": "bust"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "cm",
+				"default": "",
 				"prefix": "Waist: "
 			},
 			"name": "waist"
@@ -106,16 +116,6 @@
 				"prefix": "Hip: "
 			},
 			"name": "hip"
-		},
-		{
-			"type": "property",
-			"scope": "entry",
-			"settings": {
-				"suffix": "cm",
-				"default": "",
-				"prefix": "Chest: "
-			},
-			"name": "chest"
 		},
 		{
 			"type": "spacer",
@@ -182,7 +182,55 @@
 				"type": "line",
 				"aggregate": "average",
 				"aggregate_of": "bmi",
-				"group_by": "day"
+				"group_by": "day",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "weight",
+				"group_by": "day",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "bust",
+				"group_by": "day",
+				"caption": "Bust per day",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "waist",
+				"group_by": "day",
+				"caption": "Waist circumference per day",
+				"smooth": true
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "average",
+				"aggregate_of": "hip",
+				"group_by": "day",
+				"caption": "Hip per day",
+				"smooth": true
 			}
 		}
 	]
