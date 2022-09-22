@@ -1,6 +1,6 @@
 # My lifesheets
 
-- [🤕 mygraine](mygraine): migraine tracker (private)
+- [🤕 mygraine](mygraine): migraine tracker
 - [👶🏼 Childcare](childcare): childcare calculator
 - [🫀 Pressurized](pressurized): measurement tracker
 - [💪🏼 MyBod](mybody): measurement tracker
