@@ -1,0 +1,28 @@
+{
+	"entry": [
+		{
+			"date": "2022-09-15",
+			"time": "10:00",
+			"end_time": "22:00",
+			"end_date": "2022-09-15",
+			"intensity": 3,
+			"side": "left"
+		},
+		{
+			"date": "2022-09-17",
+			"time": "20:15",
+			"end_time": "04:00",
+			"end_date": "2022-09-18",
+			"intensity": 3,
+			"side": "left"
+		},
+		{
+			"date": "2022-09-20",
+			"time": "06:00",
+			"end_time": "22:00",
+			"end_date": "2022-09-21",
+			"intensity": 3,
+			"side": "left"
+		}
+	]
+}
