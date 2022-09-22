@@ -4,9 +4,14 @@
 		"slug": "mygraine",
 		"entry_name": "migraine",
 		"entries_name": "migraines",
+		"description": "migraine tracker",
+		"private": false,
 		"icon": "🤕",
-		"color": "#cc0044",
-		"description": "migraine tracker"
+		"color": "#a00808",
+		"storage_type": "",
+		"storage": "",
+		"custom_css": "",
+		"charts_placement": ""
 	},
 	"temporal": {
 		"times": "yes",
@@ -129,9 +134,9 @@
 			],
 			"settings": {
 				"visible": "[end_date and (time and end_time)]",
-				"expression": "duration(duration, 2)",
 				"prefix": "(",
-				"suffix": ")"
+				"suffix": ")",
+				"expression": "duration(duration, 2)"
 			},
 			"name": "duration_readable"
 		},
@@ -144,13 +149,7 @@
 			"type": "property",
 			"scope": "entry",
 			"settings": {
-				"type": "number",
-				"min": 1,
-				"max": 5,
-				"step": 1,
 				"number_style": "bar",
-				"icon": "🤕",
-				"default": "",
 				"bar_style": "discrete"
 			},
 			"name": "intensity"
@@ -165,100 +164,30 @@
 			"name": "side"
 		},
 		{
-			"type": "expression",
-			"scope": "entry",
-			"settings": {
-				"expression": "duration(end_date_time - $previous.end_date_time, 2)",
-				"visible": "false",
-				"suffix": " since last migraine"
-			}
-		},
-		{
 			"type": "property",
 			"scope": "entry",
 			"settings": {
 				"type": "text",
-				"multiline": true,
-				"appearance": "line"
+				"appearance": "line",
+				"multiline": true
 			},
 			"name": "notes"
 		}
 	],
 	"root": [
 		{
-			"type": "expression",
-			"scope": "root",
-			"settings": {
-				"expression": "count(entry)",
-				"suffix": " recorded migraines •"
-			}
-		},
-		{
-			"type": "expression",
-			"scope": "root",
-			"settings": {
-				"expression": "duration($now - last(end_date_time), 2)",
-				"suffix": " since last migraine",
-				"visible": "[last(end_time)]"
-			}
-		},
-		{
-			"type": "spacer",
-			"scope": "root",
-			"settings": {
-				"appearance": "line"
-			}
-		},
-		{
 			"type": "action",
 			"scope": "root",
 			"settings": {
-				"target_preset": "new",
+				"visible": "edit",
+				"label": "➕ Add migraine",
 				"target": "add(entry)",
-				"appearance": "stretch",
-				"label": "Start migraine",
+				"target_preset": "new",
+				"appearance": "",
 				"set_pairs": [],
-				"filter_pairs": []
-			}
-		},
-		{
-			"type": "action",
-			"scope": "root",
-			"settings": {
-				"target_preset": "last",
-				"target": "last(entry)",
-				"label": "End migraine",
-				"appearance": "stretch",
-				"set_pairs": [
-					{
-						"name": "end_time",
-						"value": "time($now)"
-					}
-				],
 				"filter_pairs": []
 			}
 		}
 	],
-	"charts": [
-		{
-			"type": "chart",
-			"scope": "charts",
-			"settings": {
-				"aggregate": "average",
-				"aggregate_of": "intensity",
-				"orientation": "horizontal",
-				"type": "bar"
-			}
-		},
-		{
-			"type": "chart",
-			"scope": "charts",
-			"settings": {
-				"aggregate_of": "entry",
-				"group_by": "side",
-				"type": "pie",
-				"caption": "Number of migraines per side"
-			}
-		}
-	]
+	"charts": []
 }
