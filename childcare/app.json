@@ -197,11 +197,6 @@
 				"suffix": ")"
 			},
 			"name": "cumulative_balance"
-		},
-		{
-			"type": "spacer",
-			"scope": "entry",
-			"settings": {}
 		}
 	],
 	"root": [
