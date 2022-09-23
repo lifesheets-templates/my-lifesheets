@@ -176,18 +176,62 @@
 	],
 	"root": [
 		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"expression": "duration($now - last(end_date_time))",
+				"suffix": " since last migraine",
+				"appearance": "line"
+			}
+		},
+		{
 			"type": "action",
 			"scope": "root",
 			"settings": {
 				"visible": "edit",
-				"label": "➕ Add migraine",
+				"label": "➕ Start migraine",
 				"target": "add(entry)",
 				"target_preset": "new",
-				"appearance": "",
+				"appearance": "stretch",
 				"set_pairs": [],
 				"filter_pairs": []
 			}
+		},
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "last",
+				"target": "last(entry)",
+				"set_pairs": [
+					{
+						"name": "end_time",
+						"value": "time($now)"
+					}
+				],
+				"filter_pairs": [],
+				"label": "End migraine",
+				"appearance": "stretch"
+			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "intensity",
+				"type": "bar"
+			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"group_by": "side",
+				"type": "pie"
+			}
+		}
+	]
 }
