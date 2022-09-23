@@ -2,10 +2,10 @@
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
 	"name": "Pressurized",
 	"short_name": "Pressurized",
-	"start_url": "https://leaverou.lifesheets.app/pressurized",
+	"start_url": "https://lifesheets-templates.lifesheets.app/pressurized",
 	"display": "standalone",
-	"background_color": "#327640",
-	"description": "measurement tracker",
+	"background_color": "#6f923a",
+	"description": "blood pressure tracker",
 	"icons": [
 		{
 			"src": "data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text style=\"font-size: 80px\" x=\"50%\" y=\".85em\" dominant-baseline=\"middle\" text-anchor=\"middle\">🫀</text></svg>",
