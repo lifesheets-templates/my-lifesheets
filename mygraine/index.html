@@ -26,15 +26,56 @@
 			<span class="app-name">mygraine</span>
 		</h1>
 		<h2>migraine tracker</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart17" type="bar" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Average intensity</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart17" mv-value="groupBy(entry.intensity, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average intensity per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart18" type="pie" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Side</th>
+					<th hc-name="b">Number of migraines</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart18" mv-value="sort(groupBy(entry.entry, entry.side), '$value')">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[count($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Number of migraines per side value</figcaption></figure>
+			</div>
 		<a id=entries></a>
+			<span data-type="expression" data-suffix=" since last migraine" mv-value="duration($now - last(end_date_time))" class="appearance-line"></span>
 			<div class="field-row">
-				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add migraine</button>
+				<button data-type="action" data-show="edit" mv-action="add(entry)" class="appearance-stretch">➕ Start migraine</button>
+				<button data-type="action" mv-action="set(last(entry), end_time: time($now))" class="appearance-stretch">End migraine</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
