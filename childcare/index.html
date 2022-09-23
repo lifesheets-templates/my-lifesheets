@@ -36,8 +36,8 @@
 			<div class="field-row">
 				<span property="currency" data-type="property" data-prefix="Currency: " mv-options="€,$,£" class="type-options"></span>
 				<span property="hourly_rate" data-type="property" data-prefix="[&quot;Hourly rate: &quot; & currency]" mv-default="5" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
-				<span data-type="expression" data-prefix="[&quot;Balance: &quot; & currency]" mv-value="sum(balance)"></span>
 			</div>
+			<span data-type="expression" data-prefix="[&quot;Balance: &quot; & currency]" mv-value="sum(balance)" class="appearance-line bold"></span>
 			<span data-type="spacer" class="appearance-line"></span>
 			<div class="field-row">
 				<button data-type="action" mv-action="add(type: Care, entry)" class="appearance-stretch">Add care</button>
