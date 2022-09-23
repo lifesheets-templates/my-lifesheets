@@ -10,22 +10,22 @@
 	<link rel="stylesheet" href="../style.css">
 	<style>
 		:root {
-			--accent-color: #327640;
+			--accent-color: #6f923a;
 			--icon: "🫀";
 		}
-		
+		undefined
 	</style>
 	<link rel="manifest" href="manifest.json">
 	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
 	<script type="module" src="https://nudeui.com/index.js"></script>
 </head>
-<body mv-app="pressurized" class="mv-autoedit" mv-storage="https://github.com/LeaVerou/my-lifesheets/pressurized/data.json">
+<body mv-app="lifesheet" class="mv-autoedit" mv-storage="https://github.com/lifesheets-templates/my-lifesheets/pressurized/data.json">
 	<header>
 		<h1>
 			<span class="app-icon">🫀</span>
 			<span class="app-name">Pressurized</span>
 		</h1>
-		<h2>measurement tracker</h2>
+		<h2>blood pressure tracker</h2>
 		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
@@ -34,7 +34,26 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="line" x="b">
+	<h-chart id="chart13" type="line" x="a" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Average systolic</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart13" mv-value="groupBy(entry.systolic, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[average($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Average systolic per day</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart id="chart14" type="line" x="a" options="smooth">
 		<table>
 			<thead>
 				<tr>
@@ -54,7 +73,7 @@
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
-				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add measurement</button>
+				<button data-type="action" mv-action="add(entry)" class="appearance-stretch">Add measurement</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
@@ -62,11 +81,13 @@
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
 					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
-					<span property="systolic" data-type="property" data-suffix=" / " mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
-					<span property="diastolic" data-type="property" data-suffix="mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="300" mv-editor-step="1" class="type-number"></span>
-					<span data-type="spacer" class="appearance-stretch"></span>
-					<span data-type="expression" mv-value="if(systolic > 180 or diastolic > 120, &quot;Hypertensive Crisis&quot;)"></span>
 					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
+					<span property="systolic" data-type="property" mv-editor-type="number" mv-editor-min="1" mv-editor-max="250" mv-editor-step="1" class="type-number"></span>
+					<span property="diastolic" data-type="property" data-prefix="/ " data-suffix=" mmHg" mv-editor-type="number" mv-editor-min="1" mv-editor-max="200" mv-editor-step="1" class="type-number"></span>
+					<span data-type="spacer" class="appearance-stretch"></span>
+					<span data-type="expression" mv-value="if((130 < systolic or 80 < diastolic) and systolic < 140 and diastolic < 90, 'Hypertension Stage 1')" class="bold" style="color: #e69100"></span>
+					<span data-type="expression" mv-value="if((140 <= systolic or 90 <= diastolic) and systolic < 180 and diastolic < 120, 'Hypertension Stage 2')" class="bold" style="color: #e65d19"></span>
+					<span data-type="expression" mv-value="if(systolic >= 180 or diastolic >= 120, 'Hypertensive Crisis')" class="bold" style="color: #cc0000"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
 			</article>
