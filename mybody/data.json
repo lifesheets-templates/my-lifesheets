@@ -1,0 +1,23 @@
+{
+	"height": "160",
+	"entry": [
+		{
+			"date": "2022-09-20",
+			"time": "21:00",
+			"weight": 69,
+			"bust": 91,
+			"waist": 81,
+			"hip": 108,
+			"photos": []
+		},
+		{
+			"date": "2022-09-22",
+			"time": "21:00",
+			"weight": 70,
+			"bust": 90,
+			"waist": 80,
+			"hip": 110,
+			"photos": []
+		}
+	]
+}
