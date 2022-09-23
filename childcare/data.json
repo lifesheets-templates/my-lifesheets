@@ -58,6 +58,22 @@
 			"end_time": "22:30",
 			"end_date": "2022-09-09",
 			"amount": "0"
+		},
+		{
+			"type": "Care",
+			"date": "2022-09-10",
+			"time": "12:00",
+			"end_time": "20:00",
+			"end_date": "2022-09-10",
+			"amount": "0"
+		},
+		{
+			"type": "Care",
+			"date": "2022-09-12",
+			"time": "11:00",
+			"end_time": "22:30",
+			"end_date": "2022-09-12",
+			"amount": "0"
 		}
 	],
 	"currency": "€"
