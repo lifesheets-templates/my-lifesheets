@@ -34,7 +34,7 @@
 			<div class="chart-row">
 				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
 	
-	<h-chart id="chart14" type="bar" x="b">
+	<h-chart id="chart18" type="bar" x="b">
 		<table>
 			<thead>
 				<tr>
@@ -42,14 +42,14 @@
 					<th hc-name="b">Average cycle_duration</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart14" mv-value="groupBy(entry.cycle_duration, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart18" mv-value="groupBy(entry.cycle_duration, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
 				</tr>
 			</tbody>
 		</table>
-	</h-chart><script>chart14.xFormat = $result => {
+	</h-chart><script>chart18.xFormat = $result => {
 						try {
 							let $fn = Mavo.Script.$fn;
 							let $this = Mavo.all[0]?.root.getLiveData() ?? {};
@@ -61,6 +61,11 @@
 						}
 					};</script>
 	<figcaption>Average cycle_duration per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-calendar" style="min-width: min(300px, 100vw)">
+	<nd-calendar id="chart20" mv-list="chart20" mv-value="entry">
+				<time datetime="[chart20.date & if(chart20.end_date, ' / ' & chart20.end_date)]"></time>
+			</nd-calendar>
+	<figcaption></figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
