@@ -214,6 +214,13 @@
 				"number_format": "duration($result, \"days\")",
 				"type": "bar"
 			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "calendar"
+			}
 		}
 	]
 }
