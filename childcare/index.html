@@ -62,7 +62,6 @@
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+') & currency]" mv-value="if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * amount)"></span>
 					<span property="cumulative_balance" data-type="expression" data-prefix="[&quot;(&quot; & currency]" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
-					<span data-type="spacer" class="appearance-stretch"></span>
 				</header>
 			</article>
 		</section>
