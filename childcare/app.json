@@ -197,6 +197,11 @@
 				"suffix": ")"
 			},
 			"name": "cumulative_balance"
+		},
+		{
+			"type": "spacer",
+			"scope": "entry",
+			"settings": {}
 		}
 	],
 	"root": [
@@ -220,6 +225,11 @@
 			"name": "hourly_rate"
 		},
 		{
+			"type": "spacer",
+			"scope": "root",
+			"settings": {}
+		},
+		{
 			"type": "expression",
 			"scope": "root",
 			"settings": {
@@ -228,7 +238,7 @@
 				"formatting": [
 					"b"
 				],
-				"appearance": "line"
+				"appearance": ""
 			}
 		},
 		{
