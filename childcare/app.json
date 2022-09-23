@@ -183,7 +183,8 @@
 				"expression": "if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * amount)",
 				"visible": "true",
 				"visible_custom": "type='Care'",
-				"prefix": "[if(balance > 0, '+') & currency]"
+				"prefix": "[if(balance > 0, '+') & currency]",
+				"formatting": []
 			},
 			"name": "balance"
 		},
@@ -223,7 +224,11 @@
 			"scope": "root",
 			"settings": {
 				"expression": "sum(balance)",
-				"prefix": "[\"Balance: \" & currency]"
+				"prefix": "[\"Balance: \" & currency]",
+				"formatting": [
+					"b"
+				],
+				"appearance": "line"
 			}
 		},
 		{
