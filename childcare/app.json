@@ -197,6 +197,13 @@
 				"suffix": ")"
 			},
 			"name": "cumulative_balance"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "$index"
+			}
 		}
 	],
 	"root": [
@@ -248,16 +255,22 @@
 			"scope": "root",
 			"settings": {
 				"target_preset": "new",
-				"target": "add(entry)",
 				"label": "Add care",
 				"appearance": "stretch",
-				"set_pairs": [
+				"actions": [
 					{
-						"name": "type",
-						"value": "Care"
+						"type": "add",
+						"target": "add(entry)",
+						"filter_junction": "and",
+						"set_pairs": [
+							{
+								"name": "type",
+								"value": "\"Care\""
+							}
+						],
+						"filter_pairs": []
 					}
-				],
-				"filter_pairs": []
+				]
 			}
 		},
 		{
@@ -265,16 +278,22 @@
 			"scope": "root",
 			"settings": {
 				"target_preset": "new",
-				"target": "add(entry)",
 				"label": "Add payment",
 				"appearance": "stretch",
-				"set_pairs": [
+				"actions": [
 					{
-						"name": "type",
-						"value": "\"Payment\""
+						"type": "add",
+						"target": "add(entry)",
+						"filter_junction": "and",
+						"set_pairs": [
+							{
+								"name": "type",
+								"value": "\"Payment\""
+							}
+						],
+						"filter_pairs": []
 					}
-				],
-				"filter_pairs": []
+				]
 			}
 		},
 		{
@@ -282,10 +301,39 @@
 			"scope": "root",
 			"settings": {
 				"target_preset": "first",
-				"target": "first(entry)",
-				"set_pairs": [],
-				"filter_pairs": [],
-				"label": "Consolidate"
+				"label": "Consolidate",
+				"actions": [
+					{
+						"type": "add",
+						"target": "first(entry)",
+						"filter_junction": "and",
+						"set_pairs": [
+							{
+								"name": "type",
+								"value": "\"balance\""
+							},
+							{
+								"name": "amount",
+								"value": "sum(balance)"
+							}
+						],
+						"filter_pairs": []
+					},
+					{
+						"type": "delete",
+						"target": "entry",
+						"filter_junction": "and",
+						"set_pairs": [],
+						"filter_pairs": [
+							{
+								"test_prop": "$index",
+								"op": "<",
+								"test_value": "count(entry) - 1",
+								"expression": "$index < count(entry) - 1"
+							}
+						]
+					}
+				]
 			}
 		}
 	],
