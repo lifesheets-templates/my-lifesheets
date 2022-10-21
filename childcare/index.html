@@ -41,9 +41,9 @@
 			</div>
 			<span data-type="spacer" class="appearance-line"></span>
 			<div class="field-row">
-				<button data-type="action" mv-action="add(type: Care, entry)" class="appearance-stretch">Add care</button>
+				<button data-type="action" mv-action="add(type: &quot;Care&quot;, entry)" class="appearance-stretch">Add care</button>
 				<button data-type="action" mv-action="add(type: &quot;Payment&quot;, entry)" class="appearance-stretch">Add payment</button>
-				<button data-type="action" mv-action="first(entry)">Consolidate</button>
+				<button data-type="action" mv-action="add(group(type: &quot;balance&quot;, amount: sum(balance)), entry), delete(entry where $index < count(entry) - 1)">Consolidate</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
@@ -62,6 +62,7 @@
 					<span data-type="spacer" class="appearance-stretch"></span>
 					<span property="balance" data-type="expression" data-prefix="[if(balance > 0, '+') & currency]" mv-value="if(type = 'Care', (duration / hours()) * hourly_rate * if(type = 'Payment', -1, 1), -1 * amount)"></span>
 					<span property="cumulative_balance" data-type="expression" data-prefix="[&quot;(&quot; & currency]" data-suffix=")" mv-value="sum($all.$previous.balance) + balance"></span>
+					<span data-type="expression" mv-value="$index"></span>
 				</header>
 			</article>
 		</section>
