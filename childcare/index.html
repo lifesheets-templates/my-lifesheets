@@ -43,7 +43,7 @@
 			<div class="field-row">
 				<button data-type="action" mv-action="add(type: &quot;Care&quot;, entry)" class="appearance-stretch">Add care</button>
 				<button data-type="action" mv-action="add(type: &quot;Payment&quot;, entry)" class="appearance-stretch">Add payment</button>
-				<button data-type="action" mv-action="add(group(type: &quot;balance&quot;, amount: sum(balance)), entry), delete(entry where $index < count(entry) - 1)">Consolidate</button>
+				<button data-type="action" mv-action="add(group(type: &quot;balance&quot;, amount: -sum(balance)), entry), delete(entry where $index < count(entry) - 1)">Consolidate</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
