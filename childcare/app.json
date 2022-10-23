@@ -314,7 +314,7 @@
 							},
 							{
 								"name": "amount",
-								"value": "sum(balance)"
+								"value": "-sum(balance)"
 							}
 						],
 						"filter_pairs": []
